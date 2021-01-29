@@ -1,0 +1,72 @@
+[1mdiff --git a/templates/accueil/home.html.twig b/templates/accueil/home.html.twig[m
+[1mindex 60d44ad..add86ad 100644[m
+[1m--- a/templates/accueil/home.html.twig[m
+[1m+++ b/templates/accueil/home.html.twig[m
+[36m@@ -63,7 +63,7 @@[m
+         </div>[m
+         <div>[m
+             <form class="form-inline my-2 my-lg-0">[m
+[31m-                <input class="form-control mr-sm-2" type="text" placeholder="Search">[m
+[32m+[m[32m                <input class="btn btn-primary" type="text" placeholder="Search">[m[41m[m
+                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>[m
+             </form>[m
+         </div>[m
+[1mdiff --git a/var/cache/dev/profiler/index.csv b/var/cache/dev/profiler/index.csv[m
+[1mindex 6e45c03..0dd77e9 100644[m
+[1m--- a/var/cache/dev/profiler/index.csv[m
+[1m+++ b/var/cache/dev/profiler/index.csv[m
+[36m@@ -156,3 +156,4 @@[m [me7025f,127.0.0.1,GET,http://127.0.0.1:8000/,1611924043,,200[m
+ 30c696,127.0.0.1,GET,http://127.0.0.1:8000/,1611924296,,200[m
+ 0a3cf9,127.0.0.1,GET,http://127.0.0.1:8000/,1611925127,,200[m
+ 5d21f1,127.0.0.1,GET,http://127.0.0.1:8000/,1611925508,,200[m
+[32m+[m[32md6f928,127.0.0.1,GET,http://127.0.0.1:8000/,1611925839,,200[m
+[1mdiff --git a/var/cache/dev/srcApp_KernelDevDebugContainer.php b/var/cache/dev/srcApp_KernelDevDebugContainer.php[m
+[1mindex c3a02c3..42a5399 100644[m
+[1m--- a/var/cache/dev/srcApp_KernelDevDebugContainer.php[m
+[1m+++ b/var/cache/dev/srcApp_KernelDevDebugContainer.php[m
+[36m@@ -16,6 +16,6 @@[m [mif (!\class_exists(srcApp_KernelDevDebugContainer::class, false)) {[m
+ [m
+ return new \ContainerGGhx5YZ\srcApp_KernelDevDebugContainer([[m
+     'container.build_hash' => 'GGhx5YZ',[m
+[31m-    'container.build_id' => '7f33607a',[m
+[31m-    'container.build_time' => 1611912248,[m
+[32m+[m[32m    'container.build_id' => 'a4fa9651',[m
+[32m+[m[32m    'container.build_time' => 1611925829,[m
+ ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerGGhx5YZ');[m
+[1mdiff --git a/var/cache/dev/twig/64/646bac62a868e27cb093219a7e702e0522dc339fece2d8a87f5420dbf6acfeb5.php b/var/cache/dev/twig/64/646bac62a868e27cb093219a7e702e0522dc339fece2d8a87f5420dbf6acfeb5.php[m
+[1mindex da0c8b3..70a5855 100644[m
+[1m--- a/var/cache/dev/twig/64/646bac62a868e27cb093219a7e702e0522dc339fece2d8a87f5420dbf6acfeb5.php[m
+[1m+++ b/var/cache/dev/twig/64/646bac62a868e27cb093219a7e702e0522dc339fece2d8a87f5420dbf6acfeb5.php[m
+[36m@@ -126,7 +126,7 @@[m [mclass __TwigTemplate_0a8ab38f03d48b868d0541c4ed307e536934e0a359780143e9ce7ebf789[m
+         </div>[m
+         <div>[m
+             <form class=\"form-inline my-2 my-lg-0\">[m
+[31m-                <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">[m
+[32m+[m[32m                <input class=\"btn btn-primary\" type=\"text\" placeholder=\"Search\">[m
+                 <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>[m
+             </form>[m
+         </div>[m
+[36m@@ -222,7 +222,7 @@[m [mclass __TwigTemplate_0a8ab38f03d48b868d0541c4ed307e536934e0a359780143e9ce7ebf789[m
+         </div>[m
+         <div>[m
+             <form class=\"form-inline my-2 my-lg-0\">[m
+[31m-                <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">[m
+[32m+[m[32m                <input class=\"btn btn-primary\" type=\"text\" placeholder=\"Search\">[m[41m[m
+                 <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>[m
+             </form>[m
+         </div>[m
+[1mdiff --git a/var/log/dev.log b/var/log/dev.log[m
+[1mindex 5b78d28..9f60299 100644[m
+[1m--- a/var/log/dev.log[m
+[1m+++ b/var/log/dev.log[m
+[36m@@ -1081,3 +1081,10 @@[m
+ [2021-01-29 14:05:09] php.INFO: User Deprecated: Using the WebserverBundle is deprecated since Symfony 4.4. The new Symfony local server has more features, you can use it instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: Using the WebserverBundle is deprecated since Symfony 4.4. The new Symfony local server has more features, you can use it instead. at C:\\wamp64\\www\\web\\website-skeleton\\vendor\\symfony\\web-server-bundle\\WebServerBundle.php:23)"} [][m
+ [2021-01-29 14:05:09] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_route":"_wdt","_controller":"web_profiler.controller.profiler::toolbarAction","token":"5d21f1"},"request_uri":"http://127.0.0.1:8000/_wdt/5d21f1","method":"GET"} [][m
+ [2021-01-29 14:05:09] php.DEBUG: User Warning: Configure the "curl.cainfo", "openssl.cafile" or "openssl.capath" php.ini setting to enable the CurlHttpClient {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Exception\\SilencedErrorContext: {\"severity\":512,\"file\":\"C:\\\\wamp64\\\\www\\\\web\\\\website-skeleton\\\\vendor\\\\symfony\\\\http-client\\\\HttpClient.php\",\"line\":37,\"trace\":[{\"file\":\"C:\\\\wamp64\\\\www\\\\web\\\\website-skeleton\\\\var\\\\cache\\\\dev\\\\ContainerGGhx5YZ\\\\srcApp_KernelDevDebugContainer.php\",\"line\":1734,\"function\":\"create\",\"class\":\"Symfony\\\\Component\\\\HttpClient\\\\HttpClient\",\"type\":\"::\"}],\"count\":1})"} [][m
+[32m+[m[32m[2021-01-29 14:10:38] php.INFO: User Deprecated: Using the WebserverBundle is deprecated since Symfony 4.4. The new Symfony local server has more features, you can use it instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: Using the WebserverBundle is deprecated since Symfony 4.4. The new Symfony local server has more features, you can use it instead. at C:\\wamp64\\www\\web\\website-skeleton\\vendor\\symfony\\web-server-bundle\\WebServerBundle.php:23)"} [][m
+[32m+[m[32m[2021-01-29 14:10:38] request.INFO: Matched route "home". {"route":"home","route_parameters":{"_route":"home","_controller":"App\\Controller\\AccueilController::home"},"request_uri":"http://127.0.0.1:8000/","method":"GET"} [][m
+[32m+[m[32m[2021-01-29 14:10:39] php.DEBUG: User Warning: Configure the "curl.cainfo", "openssl.cafile" or "openssl.capath" php.ini setting to enable the CurlHttpClient {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Exception\\SilencedErrorContext: {\"severity\":512,\"file\":\"C:\\\\wamp64\\\\www\\\\web\\\\website-skeleton\\\\vendor\\\\symfony\\\\http-client\\\\HttpClient.php\",\"line\":37,\"trace\":[{\"file\":\"C:\\\\wamp64\\\\www\\\\web\\\\website-skeleton\\\\var\\\\cache\\\\dev\\\\ContainerGGhx5YZ\\\\srcApp_KernelDevDebugContainer.php\",\"line\":1734,\"function\":\"create\",\"class\":\"Symfony\\\\Component\\\\HttpClient\\\\HttpClient\",\"type\":\"::\"}],\"count\":1})"} [][m
+[32m+[m[32m[2021-01-29 14:10:39] security.INFO: Populated the TokenStorage with an anonymous Token. [] [][m
+[32m+[m[32m[2021-01-29 14:10:41] php.INFO: User Deprecated: Using the WebserverBundle is deprecated since Symfony 4.4. The new Symfony local server has more features, you can use it instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: Using the WebserverBundle is deprecated since Symfony 4.4. The new Symfony local server has more features, you can use it instead. at C:\\wamp64\\www\\web\\website-skeleton\\vendor\\symfony\\web-server-bundle\\WebServerBundle.php:23)"} [][m
+[32m+[m[32m[2021-01-29 14:10:41] request.INFO: Matched route "_wdt". {"route":"_wdt","route_parameters":{"_route":"_wdt","_controller":"web_profiler.controller.profiler::toolbarAction","token":"d6f928"},"request_uri":"http://127.0.0.1:8000/_wdt/d6f928","method":"GET"} [][m
+[32m+[m[32m[2021-01-29 14:10:41] php.DEBUG: User Warning: Configure the "curl.cainfo", "openssl.cafile" or "openssl.capath" php.ini setting to enable the CurlHttpClient {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Exception\\SilencedErrorContext: {\"severity\":512,\"file\":\"C:\\\\wamp64\\\\www\\\\web\\\\website-skeleton\\\\vendor\\\\symfony\\\\http-client\\\\HttpClient.php\",\"line\":37,\"trace\":[{\"file\":\"C:\\\\wamp64\\\\www\\\\web\\\\website-skeleton\\\\var\\\\cache\\\\dev\\\\ContainerGGhx5YZ\\\\srcApp_KernelDevDebugContainer.php\",\"line\":1734,\"function\":\"create\",\"class\":\"Symfony\\\\Component\\\\HttpClient\\\\HttpClient\",\"type\":\"::\"}],\"count\":1})"} [][m
