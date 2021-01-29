@@ -21,8 +21,17 @@ class   AccueilController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home(){
+    public function home()
+    {
         return $this->render('accueil/home.html.twig');
 
+    }
+
+    /**
+     * @Route("choose", name="choose")
+     */
+    public function choose()
+    {
+        return $this->render('accueil/choose.html.twig');
     }
 }
