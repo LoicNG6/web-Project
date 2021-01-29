@@ -102,6 +102,7 @@
       <path value="$PROJECT_DIR$/website-skeleton/vendor/psr/container" />
       <path value="$PROJECT_DIR$/website-skeleton/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/website-skeleton/vendor/composer" />
+      <path value="$PROJECT_DIR$/website-skeleton/vendor/symfony/apache-pack" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1">

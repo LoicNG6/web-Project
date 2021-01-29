@@ -106,6 +106,7 @@
       <excludeFolder url="file://$MODULE_DIR$/website-skeleton/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/website-skeleton/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/website-skeleton/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/website-skeleton/vendor/symfony/apache-pack" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
