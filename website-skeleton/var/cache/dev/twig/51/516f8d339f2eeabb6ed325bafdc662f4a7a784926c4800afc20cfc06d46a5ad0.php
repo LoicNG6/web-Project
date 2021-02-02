@@ -42,48 +42,54 @@ class __TwigTemplate_489464d59ed93d1c99805c8f0b60c1004890dc66e79410903265cb3a9f3
         // line 1
         echo "<!DOCTYPE html>
 <html>
-<head>
-    <meta charset=\"UTF-8\"/>
-    <title>Welcome to WH ?</title>
-    <link href=\"";
+    <head>
+        <meta charset=\"UTF-8\"/>
+        <title>Welcome to WH ?</title>
+        <link href=\"";
         // line 6
-        echo "choose.css";
+        echo "choix.css";
         echo "\" type=\"text/css\" rel=\"stylesheet\">
-</head>
+    </head>
 
-<body>
-<div class=\"title\">
-    <h2>Welcome to</h2>
-    <div class=\"trait\"></div>
-    <h1>What Happened ?</h1>
-</div>
+    <body>
 
-<table class=\"choices\">
-    <tr>
-        <td>
-            <div class=\"connection\">
-                <p>Want to write something ? </p>
-                <button><a href=\"connection.html.twig\">Sign in</a></button>
+        <div class=\"deco\">
+            <div class=\"title\">
+                <h2>Welcome to</h2>
+                <div class=\"trait\"></div>
+                <h1>What Happened ?</h1>
             </div>
-        </td>
-        <td>
-            <div class=\"visit\">
-                <p>Need to know more about us ?</p>
-                <button><a href=\"visit.html.twig\">Let's go</a></button>
-            </div>
-        </td>
-        <td>
-            <div class=\"inscription\">
-                <p>Want to become a member ?</p>
-                <button>
-                    <a href=\"signIn.html.twig\">Sign up</a>
-                </button>
+        </div>
 
-            </div>
-        </td>
-    </tr>
-</table>
-</body>
+        <div class=\"deco2\">
+            <table class=\"choices\">
+                <tr>
+                    <td>
+                        <div class=\"connection\">
+                            <p>Want to write something ? </p>
+                            <button><a href=\"connection.html.twig\">Sign in</a></button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=\"visit\">
+                            <p>Need to know more about us ?</p>
+                            <button><a href=\"visit.html.twig\">Let's go</a></button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=\"inscription\">
+                            <p>Want to become a member ?</p>
+                            <button>
+                                <a href=\"signIn.html.twig\">Sign up</a>
+                            </button>
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </body>
 </html>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -112,45 +118,51 @@ class __TwigTemplate_489464d59ed93d1c99805c8f0b60c1004890dc66e79410903265cb3a9f3
     {
         return new Source("<!DOCTYPE html>
 <html>
-<head>
-    <meta charset=\"UTF-8\"/>
-    <title>Welcome to WH ?</title>
-    <link href=\"{{'choose.css'}}\" type=\"text/css\" rel=\"stylesheet\">
-</head>
+    <head>
+        <meta charset=\"UTF-8\"/>
+        <title>Welcome to WH ?</title>
+        <link href=\"{{'choix.css'}}\" type=\"text/css\" rel=\"stylesheet\">
+    </head>
 
-<body>
-<div class=\"title\">
-    <h2>Welcome to</h2>
-    <div class=\"trait\"></div>
-    <h1>What Happened ?</h1>
-</div>
+    <body>
 
-<table class=\"choices\">
-    <tr>
-        <td>
-            <div class=\"connection\">
-                <p>Want to write something ? </p>
-                <button><a href=\"connection.html.twig\">Sign in</a></button>
+        <div class=\"deco\">
+            <div class=\"title\">
+                <h2>Welcome to</h2>
+                <div class=\"trait\"></div>
+                <h1>What Happened ?</h1>
             </div>
-        </td>
-        <td>
-            <div class=\"visit\">
-                <p>Need to know more about us ?</p>
-                <button><a href=\"visit.html.twig\">Let's go</a></button>
-            </div>
-        </td>
-        <td>
-            <div class=\"inscription\">
-                <p>Want to become a member ?</p>
-                <button>
-                    <a href=\"signIn.html.twig\">Sign up</a>
-                </button>
+        </div>
 
-            </div>
-        </td>
-    </tr>
-</table>
-</body>
+        <div class=\"deco2\">
+            <table class=\"choices\">
+                <tr>
+                    <td>
+                        <div class=\"connection\">
+                            <p>Want to write something ? </p>
+                            <button><a href=\"connection.html.twig\">Sign in</a></button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=\"visit\">
+                            <p>Need to know more about us ?</p>
+                            <button><a href=\"visit.html.twig\">Let's go</a></button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=\"inscription\">
+                            <p>Want to become a member ?</p>
+                            <button>
+                                <a href=\"signIn.html.twig\">Sign up</a>
+                            </button>
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </body>
 </html>", "accueil/choose.html.twig", "/Applications/MAMP/htdocs/workspace/web-Project/website-skeleton/templates/accueil/choose.html.twig");
     }
 }

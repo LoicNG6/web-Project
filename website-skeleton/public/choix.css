@@ -1,0 +1,79 @@
+body{
+    background-color: rgba(192,192,160,0.7);
+}
+.deco{
+background-color: rgba(0,0,1,0.9) ;
+    width:auto;
+    height:350px;
+    margin:auto;
+    padding:10px;
+}
+.title{
+    background-color: rgba(0,0,1,1);
+    width: 500px;
+    height: 50px;
+    text-align:center;
+    margin-top:300px;
+    margin-left:500px;
+}
+
+.deco2{
+    background-color: rgba(192,192,160,0.7);
+    width:auto;
+    height: 500px;
+    padding-top:10px;
+}
+
+table{
+    background-color: #4682B4;
+    margin-top:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.trait{
+    border-top:solid;
+    border-color:white;
+}
+
+p{
+    font-size:x-large;
+    text-align:center;
+}
+button{
+    width:100px;
+    height:50px;
+    margin-left:100px;
+}
+button:hover{
+    background-color: #add4ee;
+}
+a{
+    font-size:large;
+    text-decoration:none;
+}
+.connection, .visit, .inscription{
+    border:solid;
+}
+h1{
+    color:white;
+}
+h2{
+    color:white;
+}
