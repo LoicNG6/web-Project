@@ -1,0 +1,64 @@
+body{
+    background-image: url("images/business.jpg");
+}
+.centre{
+    color:white;
+    background-color:rgba(230,255,255,1);
+    border-radius:100px;
+    width:1000px;
+    height: 600px;
+    margin-top:50px;
+    margin-left:auto;
+    margin-right: auto;
+    padding-top:60px;
+}
+.titre{
+    color:rgba(0,0,128,1);
+    border:solid;
+    border-radius: 30px;
+    width: 300px;
+    text-align:center;
+    margin:auto;
+}
+.trait{
+    border-top:solid;
+    border-color:rgba(0,0,128,1);
+    width: 245px;
+    margin-left:25px;
+}
+h1{
+    margin-top:5px;
+}
+h2{
+    margin-bottom:5px;
+}
+
+table{
+    margin:auto;
+
+}
+.connection, .inscription, .visit{
+    border:solid 1px rgb(135,206,235);
+    border-radius: 50%;
+    background-color: rgb(100,149,237);
+    width: 270px;
+    height: 200px;
+    box-shadow: 3px 5px #999;
+    text-align: center;
+}
+p{
+    margin-top:50px;
+    font-size: larger;
+}
+
+button{
+    border-radius: inherit;
+}
+button:hover{
+    background-color: rgb(100,149,237);
+}
+a{
+    font-size: xx-large;
+    color:black;
+    text-decoration: none;
+}
