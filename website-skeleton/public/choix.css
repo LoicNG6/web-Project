@@ -1,79 +1,64 @@
 body{
-    background-color: rgba(192,192,160,0.7);
+    background-image: url("images/business.jpg");
 }
-.deco{
-background-color: rgba(0,0,1,0.9) ;
-    width:auto;
-    height:350px;
-    margin:auto;
-    padding:10px;
+.centre{
+    color:white;
+    background-color:rgba(230,255,255,1);
+    border-radius:100px;
+    width:1000px;
+    height: 600px;
+    margin-top:50px;
+    margin-left:auto;
+    margin-right: auto;
+    padding-top:60px;
 }
-.title{
-    background-color: rgba(0,0,1,1);
-    width: 500px;
-    height: 50px;
+.titre{
+    color:rgba(0,0,128,1);
+    border:solid;
+    border-radius: 30px;
+    width: 300px;
     text-align:center;
-    margin-top:300px;
-    margin-left:500px;
+    margin:auto;
 }
-
-.deco2{
-    background-color: rgba(192,192,160,0.7);
-    width:auto;
-    height: 500px;
-    padding-top:10px;
+.trait{
+    border-top:solid;
+    border-color:rgba(0,0,128,1);
+    width: 245px;
+    margin-left:25px;
+}
+h1{
+    margin-top:5px;
+}
+h2{
+    margin-bottom:5px;
 }
 
 table{
-    background-color: #4682B4;
-    margin-top:10px;
+    margin:auto;
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.trait{
-    border-top:solid;
-    border-color:white;
+.connection, .inscription, .visit{
+    border:solid 1px rgb(135,206,235);
+    border-radius: 50%;
+    background-color: rgb(100,149,237);
+    width: 270px;
+    height: 200px;
+    box-shadow: 3px 5px #999;
+    text-align: center;
 }
-
 p{
-    font-size:x-large;
-    text-align:center;
+    margin-top:50px;
+    font-size: larger;
 }
+
 button{
-    width:100px;
-    height:50px;
-    margin-left:100px;
+    border-radius: inherit;
 }
 button:hover{
-    background-color: #add4ee;
+    background-color: rgb(100,149,237);
 }
 a{
-    font-size:large;
-    text-decoration:none;
-}
-.connection, .visit, .inscription{
-    border:solid;
-}
-h1{
-    color:white;
-}
-h2{
-    color:white;
+    font-size: xx-large;
+    color:black;
+    text-decoration: none;
 }

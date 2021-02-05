@@ -16,6 +16,6 @@ if (!\class_exists(srcApp_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerWaXzoo1\srcApp_KernelDevDebugContainer([
     'container.build_hash' => 'WaXzoo1',
-    'container.build_id' => '0c7e10e0',
-    'container.build_time' => 1611922853,
+    'container.build_id' => '0e236ea5',
+    'container.build_time' => 1612310380,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerWaXzoo1');

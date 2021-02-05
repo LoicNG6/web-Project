@@ -52,43 +52,49 @@ class __TwigTemplate_489464d59ed93d1c99805c8f0b60c1004890dc66e79410903265cb3a9f3
     </head>
 
     <body>
+        <div class=\"centre\">
+            <div class=\"titre\">
+                <div class=\"title\">
+                    <h2>Welcome to</h2>
+                    <div class=\"trait\"></div>
+                    <h1>What Happened ?</h1>
+                </div>
+            </div>
 
-        <div class=\"deco\">
-            <div class=\"title\">
-                <h2>Welcome to</h2>
-                <div class=\"trait\"></div>
-                <h1>What Happened ?</h1>
+            <div class=\"d2\">
+                <table class=\"choices\">
+                    <tr>
+                        <td>
+                            <div class=\"connection\">
+                                <p>Want u write something ?</p>
+                                <button><a href=\"connection.html.twig\">Sign in</a></button>
+                            </div>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <div class=\"inscription\">
+                                <p>Want to become a member ?</p>
+                                <button><a href=\"signIn.html.twig\">Sign up</a></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+                            <div class=\"visit\">
+                                <p>Need to know more about us ?</p>
+                                <button><a href=\"visit.html.twig\">Visit</a></button>
+                            </div>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-
-        <div class=\"deco2\">
-            <table class=\"choices\">
-                <tr>
-                    <td>
-                        <div class=\"connection\">
-                            <p>Want to write something ? </p>
-                            <button><a href=\"connection.html.twig\">Sign in</a></button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class=\"visit\">
-                            <p>Need to know more about us ?</p>
-                            <button><a href=\"visit.html.twig\">Let's go</a></button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class=\"inscription\">
-                            <p>Want to become a member ?</p>
-                            <button>
-                                <a href=\"signIn.html.twig\">Sign up</a>
-                            </button>
-
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
     </body>
 </html>";
         
@@ -125,43 +131,49 @@ class __TwigTemplate_489464d59ed93d1c99805c8f0b60c1004890dc66e79410903265cb3a9f3
     </head>
 
     <body>
+        <div class=\"centre\">
+            <div class=\"titre\">
+                <div class=\"title\">
+                    <h2>Welcome to</h2>
+                    <div class=\"trait\"></div>
+                    <h1>What Happened ?</h1>
+                </div>
+            </div>
 
-        <div class=\"deco\">
-            <div class=\"title\">
-                <h2>Welcome to</h2>
-                <div class=\"trait\"></div>
-                <h1>What Happened ?</h1>
+            <div class=\"d2\">
+                <table class=\"choices\">
+                    <tr>
+                        <td>
+                            <div class=\"connection\">
+                                <p>Want u write something ?</p>
+                                <button><a href=\"connection.html.twig\">Sign in</a></button>
+                            </div>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <div class=\"inscription\">
+                                <p>Want to become a member ?</p>
+                                <button><a href=\"signIn.html.twig\">Sign up</a></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+                            <div class=\"visit\">
+                                <p>Need to know more about us ?</p>
+                                <button><a href=\"visit.html.twig\">Visit</a></button>
+                            </div>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-
-        <div class=\"deco2\">
-            <table class=\"choices\">
-                <tr>
-                    <td>
-                        <div class=\"connection\">
-                            <p>Want to write something ? </p>
-                            <button><a href=\"connection.html.twig\">Sign in</a></button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class=\"visit\">
-                            <p>Need to know more about us ?</p>
-                            <button><a href=\"visit.html.twig\">Let's go</a></button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class=\"inscription\">
-                            <p>Want to become a member ?</p>
-                            <button>
-                                <a href=\"signIn.html.twig\">Sign up</a>
-                            </button>
-
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
     </body>
 </html>", "accueil/choose.html.twig", "/Applications/MAMP/htdocs/workspace/web-Project/website-skeleton/templates/accueil/choose.html.twig");
     }
