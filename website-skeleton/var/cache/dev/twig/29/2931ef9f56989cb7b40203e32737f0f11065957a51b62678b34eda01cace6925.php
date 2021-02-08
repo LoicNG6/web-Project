@@ -413,6 +413,6 @@ class __TwigTemplate_3ef810d5708e896f4a0225454a66e49e5272c9bc62d5b2d0766551ee35a
         </div>
     {% endfor %}
 {% endblock %}
-", "@Debug/Profiler/dump.html.twig", "/Applications/MAMP/htdocs/workspace/web-Project/website-skeleton/vendor/symfony/debug-bundle/Resources/views/Profiler/dump.html.twig");
+", "@Debug/Profiler/dump.html.twig", "/Applications/MAMP/htdocs/wh/website-skeleton/vendor/symfony/debug-bundle/Resources/views/Profiler/dump.html.twig");
     }
 }

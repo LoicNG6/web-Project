@@ -573,3 +573,9 @@ fdf456,::1,GET,http://localhost:8888/workspace/web-Project/website-skeleton/publ
 ae2701,::1,GET,http://localhost:8888/workspace/web-Project/website-skeleton/public/choose,1612486513,,200
 75f9bc,::1,GET,http://localhost:8888/workspace/web-Project/website-skeleton/public/choose,1612486622,,200
 ef06bf,::1,GET,http://localhost:8888/workspace/web-Project/website-skeleton/public/choose,1612486635,,200
+aa5356,::1,GET,http://localhost:8888/wh/website-skeleton/public/,1612741981,,200
+692b05,::1,GET,http://localhost:8888/wh/website-skeleton/public/choose,1612741986,,200
+056595,127.0.0.1,GET,http://127.0.0.1:8000/,1612742931,,200
+067070,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1612742933,0b3f70,404
+0b3f70,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1612742933,,404
+3ac47b,::1,GET,http://localhost:8888/wh/website-skeleton/public/choose,1612743000,,200

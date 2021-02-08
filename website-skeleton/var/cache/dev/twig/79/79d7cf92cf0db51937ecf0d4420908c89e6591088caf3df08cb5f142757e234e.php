@@ -900,6 +900,6 @@ class __TwigTemplate_1b8c5d17c76b60fbeaba62530f09d088c3fe5c2d0a1ad59e196fe577dfc
         {% endautoescape %}</script>
     </div>
 {% endmacro %}
-", "@WebProfiler/Collector/time.html.twig", "/Applications/MAMP/htdocs/workspace/web-Project/website-skeleton/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.html.twig");
+", "@WebProfiler/Collector/time.html.twig", "/Applications/MAMP/htdocs/wh/website-skeleton/vendor/symfony/web-profiler-bundle/Resources/views/Collector/time.html.twig");
     }
 }

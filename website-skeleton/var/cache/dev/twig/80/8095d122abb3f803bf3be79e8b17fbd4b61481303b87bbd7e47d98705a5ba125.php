@@ -256,6 +256,6 @@ class __TwigTemplate_eebe5e10e7375c0568d60af8aba0bf311b5b44a959b631cf5c41bccbf86
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "/Applications/MAMP/htdocs/workspace/web-Project/website-skeleton/templates/base.html.twig");
+", "base.html.twig", "/Applications/MAMP/htdocs/wh/website-skeleton/templates/base.html.twig");
     }
 }

@@ -66,7 +66,7 @@ class __TwigTemplate_489464d59ed93d1c99805c8f0b60c1004890dc66e79410903265cb3a9f3
                     <tr>
                         <td>
                             <div class=\"connection\">
-                                <p>Want u write something ?</p>
+                                <p> Want u write something ?</p>
                                 <button><a href=\"connection.html.twig\">Sign in</a></button>
                             </div>
                         </td>
@@ -145,7 +145,7 @@ class __TwigTemplate_489464d59ed93d1c99805c8f0b60c1004890dc66e79410903265cb3a9f3
                     <tr>
                         <td>
                             <div class=\"connection\">
-                                <p>Want u write something ?</p>
+                                <p> Want u write something ?</p>
                                 <button><a href=\"connection.html.twig\">Sign in</a></button>
                             </div>
                         </td>
@@ -175,6 +175,6 @@ class __TwigTemplate_489464d59ed93d1c99805c8f0b60c1004890dc66e79410903265cb3a9f3
             </div>
         </div>
     </body>
-</html>", "accueil/choose.html.twig", "/Applications/MAMP/htdocs/workspace/web-Project/website-skeleton/templates/accueil/choose.html.twig");
+</html>", "accueil/choose.html.twig", "/Applications/MAMP/htdocs/wh/website-skeleton/templates/accueil/choose.html.twig");
     }
 }

@@ -97,6 +97,6 @@ class __TwigTemplate_991da056ea96265060ac58195442396a8700022e11f47448f7a64c90bb0
 {% block body%}
 
 <h1> Samsa</h1>
-{% endblock%}", "accueil/home.html.twig", "/Applications/MAMP/htdocs/workspace/web-Project/website-skeleton/templates/accueil/home.html.twig");
+{% endblock%}", "accueil/home.html.twig", "/Applications/MAMP/htdocs/wh/website-skeleton/templates/accueil/home.html.twig");
     }
 }
