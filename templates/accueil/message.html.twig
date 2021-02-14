@@ -1,0 +1,19 @@
+
+{% form_theme formMessage 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+        <p> Write Here</p>
+
+
+        {{ form_start(formMessage) }}
+
+        {{ form_row(formMessage.name,{'attr':{ 'placeholder':"Name"}}) }}
+
+        {{ form_row(formMessage.fist_name,{'attr':{ 'placeholder': "First Name"}}) }}
+        {{ form_row(formMessage.email,{'attr':{ 'placeholder': "Email"}}) }}
+        {{ form_row(formMessage.date,{'attr':{ 'placeholder': "Date",}}) }}
+        {{ form_row(formMessage.content,{'attr':{'placeholder': "Message"}} )}}
+
+        <button type="submit" class="btn btn-success">Envoyer</button>
+
+        {{ form_end (formMessage) }}
+{% endblock %}

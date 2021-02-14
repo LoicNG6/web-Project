@@ -1,0 +1,180 @@
+.title{
+    border:solid;
+    margin-top:50px;
+    margin-left:500px;
+    margin-right:500px;
+    text-align:center;
+}
+.trait{
+    border-top:solid;
+    margin-left:100px;
+    margin-right:100px;
+}
+h1{
+    margin-top:10px;
+}
+h2{
+    margin-bottom: 10px;
+}
+
+table{
+    border:solid;
+    margin-top:100px;
+    margin-left:150px;
+    margin-right:100px;
+}
+.connection{
+    border:solid;
+    width:330px;
+    height:150px;
+    margin-rigth:50px;
+}
+.visit{
+    border:solid;
+    width:330px;
+    height:150px;
+    margin-left:50px;
+    margin-rigth:50px;
+}
+.inscription{
+    border:solid;
+    width:330px;
+    height:150px;
+    margin-left:50px;
+}
+p{
+    font-size:x-large;
+    text-align:center;
+}
+button{
+
+    height:50px;
+
+}
+button:hover{
+    background-color: #add4ee;
+}
+a{
+    font-size:large;
+    text-decoration:none;
+}
+#whats{
+    margin: 15px;
+    margin-left: 10%;
+    width: 70%;
+    height: 110px;
+
+}
+#ongl{
+    display: flex;
+}
+#reserch{
+    height: 50px;
+}
+#init{
+    margin-left: 40px;
+}
+#srch{
+    margin-left: 40px;
+}
+#head{
+    display: flex;
+    justify-content: center;
+}
+#sign_up{
+    padding-top: 15px;
+    place-content: baseline;
+    margin-left: auto;
+    margin-right:1px;
+    width: 6em
+}
+#profile{
+    height: 25px;
+    width: 25px;
+}
+#twitter{
+    height: 25px;
+    width: 25px;
+}
+#fb{
+    height: 25px;
+    width: 25px;
+}
+#insta{
+    height: 25px;
+    width: 25px;
+
+}
+#instagram{
+    padding-top: 10px;
+}
+#linkedin{
+    padding-top: 10px;
+}
+#in{
+    height: 25px;
+    width: 25px;
+
+}
+#pn{
+    height: 25px;
+    width: 25px;
+
+}
+#panier{
+    padding-top: 10px;
+}
+#recherche{
+    margin-right: 20px;
+}
+#reserch {
+    width: 350px;
+}
+#list{
+    width: 250px;
+}
+
+#corp{
+    display: flex;
+    margin-top: 3%;
+}
+
+#d_center{
+
+    display: grid;
+    width: 70%;
+    grid-template-columns: 45% 45%;
+
+}
+
+#domaine{
+    padding-top: 10px;
+}
+
+#msg{
+    padding-top: 10px;
+}
+#envois{
+    padding-top: 10px;
+    margin-left: 180px;
+}
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+#date{
+    padding-top: 10px;
+}
+body{
+    background-color: black;
+}
+#art{
+
+    margin-left: 20%;
+}
+#urgent{
+    padding-top: 10px;
+}
+#btn11{
+    text-align: center;
+}

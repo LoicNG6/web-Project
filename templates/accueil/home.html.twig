@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+{% block body%}
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <div id="head">
+        <div id="whats" class="btn btn-secondary">
+            <h1> What's happened ?</h1>
+        </div>
+
+        <div id="sign_up" class="form-inline my-2 my-lg-0">
+            <div id="prof" >
+                 <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="profile" src="profil.png"></button>
+            </div>
+
+            <div id="panier" class="form-inline my-2 my-lg-0">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="pn" src="pn.png"></button>
+            </div>
+
+        </div>
+        <div id="sign_up" class="form-inline my-2 my-lg-0">
+
+            <div id="twit" class="form-inline my-2 my-lg-0">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="twitter" src="twitter.png"></button>
+            </div>
+
+            <div id="linkedin" class="form-inline my-2 my-lg-0">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="in" src="in.png"></button>
+            </div>
+        </div>
+        <div id="sign_up" class="form-inline my-2 my-lg-0">
+
+            <div id="facebook" class="form-inline my-2 my-lg-0">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="fb" src="fb.png"></button>
+            </div>
+            <div id="instagram" class="form-inline my-2 my-lg-0">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="insta" src="insta.png"></button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="ongl">
+        <div id="init" class="btn-group" role="group" >
+            <button type="button" class="btn btn-primary">A LA UNE</button>
+
+        </div>
+
+
+        <div id="init" class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">LA REDACTION</button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Pays à l'honneur</a></li>
+                <li><a href="#">Sous l'arbre à palabres</a></li>
+                <li><a href="#">Le journal d'ESMA</a></li>
+                <li><a href="#">Twiza</a></li>
+            </ul>
+        </div>
+
+
+        <div id="init" class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">EVENEMENTS</button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Nos évenements</a></li>
+                <li><a href="#">Evenements recomandés</a></li>
+            </ul>
+        </div>
+
+
+        <div id="init" class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">ARCHIVES</button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Archives Wakhatina</a></li>
+                <li><a href="#">Archives Pays à l'honneur</a></li>
+                <li><a href="#">Archives Sous l'arbre à Palabre</a></li>
+                <li><a href="#">Archives Journal d'ESMA</a></li>
+            </ul>
+        </div>
+        <div  id="init" class="btn-group" role="group" >
+            <button type="button" class="btn btn-primary">A PROPOS</button>
+        </div>
+
+        <div id="srch">
+            <form class="form-inline my-2 my-lg-0">
+                <button id="recherche" class="btn btn-primary my-2 my-sm-0" type="submit">SEARCH</button>
+                <input id="reserch" class="form-control mr-sm-3" type="text" placeholder="Search">
+
+            </form>
+        </div>
+    </div>
+
+    <div id="corp"  class="p-3 mb-2 bg-primary text-white">
+        <div id="d_right" >
+            <div >
+                <p>Our events</p>
+
+                {% include 'accueil/Events.html.twig' %}
+            </div>
+        </div>
+
+        <div id="d_center">
+            {% for article in emergency %}
+                <section id ="art" class="articles">
+                        <article>
+                            <h2> {{ article.title }}</h2>
+                            <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
+                                a {{ article.publicationdate | date('H:i')}} dans la categorie scientifique </div>
+                            <div class ="content">
+                                <img src="{{ article.picture }} " alt="">
+                                <P> voila le paragraphe de mon article</P>
+                            </div>
+                            <a href=" {{ path('showArticle') }}" class="btn btn-primary">Lire la suite</a>
+                        </article>
+                </section>
+            {% endfor %}
+        </div>
+
+        <div id="d_right" >
+                {% include 'accueil/message.html.twig' %}
+
+            <div>
+                {% include 'accueil/emergency.html.twig' %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock%}
