@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EvenentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,18 @@ class Evenent
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="evenents")
      */
     private $User;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="Participant")
+     */
+    private $Participant;
+
+    public function __construct()
+    {
+        $this->Participant = new ArrayCollection();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -106,4 +120,29 @@ class Evenent
 
         return $this;
     }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getParticipant(): Collection
+    {
+        return $this->Participant;
+    }
+
+    public function addParticipant(User $participant): self
+    {
+        if (!$this->Participant->contains($participant)) {
+            $this->Participant[] = $participant;
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(User $participant): self
+    {
+        $this->Participant->removeElement($participant);
+
+        return $this;
+    }
+
 }
