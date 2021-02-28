@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class RegistrationController extends AbstractController
+class RegController extends AbstractController
 {
     /**
      * @Route("/registration", name="registration")
@@ -27,7 +27,7 @@ class RegistrationController extends AbstractController
 
 
         return $this->render('accueil/registration.html.twig', [
-            'controller_name' => 'RegistrationController',
+            'controller_name' => 'RegController',
         ]);
     }
 }
