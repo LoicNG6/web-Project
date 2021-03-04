@@ -6,8 +6,9 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use PhpParser\Node\Scalar\String_;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
-
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name=" user")
@@ -15,9 +16,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\DiscriminatorColumn(name="type", type="string")
  * @ORM\DiscriminatorMap({
  *       "user" = "User",
-         "journalist" = "Journalist",
+"journalist" = "Journalist",
  *       "admin" = "Admin"
  *     })
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface
 {
@@ -34,20 +36,26 @@ class User implements UserInterface
     private $email;
 
     /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     */
+    private $password;
+    private $confirmPassword;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $userName;
+
+    /**
      * @ORM\Column(type="json")
      */
     private $roles = [];
 
     /**
-     * @var string The hashed password
-     * @ORM\Column(type="string")
-     */
-    private $password;
-
-    /**
      * @ORM\Column(type="string", length=100)
      */
-    private $fistName;
+    private $firstName;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -60,42 +68,6 @@ class User implements UserInterface
     private $birthday;
 
     /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $country;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $town;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $street;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $numStreet;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $zipCode;
-
-    /**
-     * @ORM\Column(type="string", length=10)
-     */
-    private $phoneNum;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $userName;
-
-
-    /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="relation")
      */
     private $comments;
@@ -104,16 +76,21 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity=Evenent::class, mappedBy="User")
      */
     private $evenents;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Admin::class, mappedBy="User")
-     */
-    private $y;
-
+    
     /**
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="user")
      */
     private $messages;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isVerified = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $company;
 
     public function __construct()
     {
@@ -181,7 +158,15 @@ class User implements UserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
-
+        return $this;
+    }
+    public function getConfirmPassword():String
+    {
+        return (string)$this->confirmPassword;
+    }
+    public function setConfirmPassword(string $confirmPassword):self
+    {
+        $this->confirmPassword=$confirmPassword;
         return $this;
     }
 
@@ -190,6 +175,7 @@ class User implements UserInterface
      */
     public function getSalt()
     {
+        return null;
         // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
@@ -202,14 +188,14 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getFistName(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->fistName;
+        return $this->firstName;
     }
 
-    public function setFistName(string $fistName): self
+    public function setFirstName(string $firstName): self
     {
-        $this->fistName = $fistName;
+        $this->firstName = $firstName;
 
         return $this;
     }
@@ -234,78 +220,6 @@ class User implements UserInterface
     public function setBirthday(\DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
-
-        return $this;
-    }
-
-    public function getCountry(): ?string
-    {
-        return $this->country;
-    }
-
-    public function setCountry(string $country): self
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    public function getTown(): ?string
-    {
-        return $this->town;
-    }
-
-    public function setTown(string $town): self
-    {
-        $this->town = $town;
-
-        return $this;
-    }
-
-    public function getStreet(): ?int
-    {
-        return $this->street;
-    }
-
-    public function setStreet(int $street): self
-    {
-        $this->street = $street;
-
-        return $this;
-    }
-
-    public function getNumStreet(): ?int
-    {
-        return $this->numStreet;
-    }
-
-    public function setNumStreet(int $numStreet): self
-    {
-        $this->numStreet = $numStreet;
-
-        return $this;
-    }
-
-    public function getZipCode(): ?int
-    {
-        return $this->zipCode;
-    }
-
-    public function setZipCode(int $zipCode): self
-    {
-        $this->zipCode = $zipCode;
-
-        return $this;
-    }
-
-    public function getPhoneNum(): ?string
-    {
-        return $this->phoneNum;
-    }
-
-    public function setPhoneNum(string $phoneNum): self
-    {
-        $this->phoneNum = $phoneNum;
 
         return $this;
     }
@@ -347,35 +261,6 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Admin[]
-     */
-    public function getY(): Collection
-    {
-        return $this->y;
-    }
-
-    public function addY(Admin $y): self
-    {
-        if (!$this->y->contains($y)) {
-            $this->y[] = $y;
-            $y->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeY(Admin $y): self
-    {
-        if ($this->y->removeElement($y)) {
-            // set the owning side to null (unless already changed)
-            if ($y->getUser() === $this) {
-                $y->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Message[]
@@ -407,4 +292,28 @@ class User implements UserInterface
         return $this;
     }
 
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getCompany(): ?bool
+    {
+        return $this->company;
+    }
+
+    public function setCompany(bool $company): self
+    {
+        $this->company = $company;
+
+        return $this;
+    }
 }
+

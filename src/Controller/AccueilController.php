@@ -46,9 +46,16 @@ class AccueilController extends AbstractController
     }
 
     /**
+     * @Route("/", name="choose")
+     */
+    public function choose()
+    {
+        return $this->render('accueil/choose.html.twig');
+    }
+
+    /**
      * @Route("/home", name="home")
      */
-
     public function home( Request $request,ObjectManager $manager):Response
     {
         $emergency = $this->articleRepository->findAll();
@@ -80,15 +87,6 @@ class AccueilController extends AbstractController
             'formMessage' => $form->createView()
 
         ]);
-    }
-
-
-    /**
-     * @Route("choose", name="choose")
-     */
-    public function choose()
-    {
-        return $this->render('accueil/choose.html.twig');
     }
 
     /**

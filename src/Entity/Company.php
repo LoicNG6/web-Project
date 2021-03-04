@@ -27,6 +27,11 @@ class Company
      */
     private $Contry;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $emailCompany;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Company
     public function setContry(?string $Contry): self
     {
         $this->Contry = $Contry;
+
+        return $this;
+    }
+
+    public function getEmailCompany(): ?string
+    {
+        return $this->emailCompany;
+    }
+
+    public function setEmailCompany(string $emailCompany): self
+    {
+        $this->emailCompany = $emailCompany;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body%}
-    <title>{% block title %}ESMA{% endblock %}</title>
+    <title>{% block title %}What happened ?{% endblock %}</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- jQuery library -->
@@ -15,31 +15,31 @@
 
         <div id="sign_up" class="form-inline my-2 my-lg-0">
             <div id="prof" >
-                 <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="profile" src="profil.png"></button>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="profile" src="pictures/profil.png"></button>
             </div>
 
             <div id="panier" class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="pn" src="pn.png"></button>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="pn" src="pictures/pn.png"></button>
             </div>
 
         </div>
         <div id="sign_up" class="form-inline my-2 my-lg-0">
 
             <div id="twit" class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="twitter" src="twitter.png"></button>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="twitter" src="pictures/twitter.png"></button>
             </div>
 
             <div id="linkedin" class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="in" src="in.png"></button>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="in" src="pictures/in.png"></button>
             </div>
         </div>
         <div id="sign_up" class="form-inline my-2 my-lg-0">
 
             <div id="facebook" class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="fb" src="fb.png"></button>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="fb" src="pictures/fb.png"></button>
             </div>
             <div id="instagram" class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="insta" src="insta.png"></button>
+                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="insta" src="pictures/insta.png"></button>
             </div>
 
         </div>
@@ -107,22 +107,22 @@
         <div id="d_center">
             {% for article in emergency %}
                 <section id ="art" class="articles">
-                        <article>
-                            <h2> {{ article.title }}</h2>
-                            <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
-                                a {{ article.publicationdate | date('H:i')}} dans la categorie scientifique </div>
-                            <div class ="content">
-                                <img src="{{ article.picture }} " alt="">
-                                <P> voila le paragraphe de mon article</P>
-                            </div>
-                            <a href=" {{ path('showArticle') }}" class="btn btn-primary">Lire la suite</a>
-                        </article>
+                    <article>
+                        <h2> {{ article.title }}</h2>
+                        <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
+                            a {{ article.publicationdate | date('H:i')}} dans la categorie scientifique </div>
+                        <div class ="content">
+                            <img src="{{ article.picture }} " alt="">
+                            <P> voila le paragraphe de mon article</P>
+                        </div>
+                        <a href=" {{ path('showArticle') }}" class="btn btn-primary">Lire la suite</a>
+                    </article>
                 </section>
             {% endfor %}
         </div>
 
         <div id="d_right" >
-                {% include 'accueil/message.html.twig' %}
+            {% include 'accueil/message.html.twig' %}
 
             <div>
                 {% include 'accueil/emergency.html.twig' %}
