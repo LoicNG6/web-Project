@@ -112,7 +112,6 @@
                         <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
                             a {{ article.publicationdate | date('H:i')}} dans la categorie scientifique </div>
                         <div class ="content">
-                            <img src="{{ article.picture }} " alt="">
                             <P> voila le paragraphe de mon article</P>
                         </div>
                         <a href=" {{ path('showArticle') }}" class="btn btn-primary">Lire la suite</a>
