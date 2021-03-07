@@ -1,3 +1,5 @@
+{% extends 'base.html.twig' %}
+
 {% block title %}Article{% endblock %}
 
 {% block body %}
@@ -5,26 +7,26 @@
 
     <table class="table">
         <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ article.id }}</td>
-        </tr>
-        <tr>
-            <th>Publication_date</th>
-            <td>{{ article.publicationDate ? article.publicationDate|date('Y-m-d') : '' }}</td>
-        </tr>
-        <tr>
-            <th>Title</th>
-            <td>{{ article.title }}</td>
-        </tr>
-        <tr>
-            <th>Content</th>
-            <td>{{ article.content }}</td>
-        </tr>
-        <tr>
-            <th>Emergency</th>
-            <td>{{ article.emergency ? 'Yes' : 'No' }}</td>
-        </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Publication_date</th>
+                <td>{{ article.publicationDate ? article.publicationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ article.content }}</td>
+            </tr>
+            <tr>
+                <th>Emergency</th>
+                <td>{{ article.emergency ? 'Yes' : 'No' }}</td>
+            </tr>
         </tbody>
     </table>
 

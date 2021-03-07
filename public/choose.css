@@ -181,3 +181,37 @@ body{
 #rens{
     text-align: center;
 }
+#indx{
+    text-align: center;
+}
+.table{
+    margin: 0%;
+}
+#Ca{
+   text-align: center;
+}
+#form{
+    display: flex;
+    justify-content: center;
+}
+#create{
+    justify-content: center;
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+#back{
+    justify-content: center;
+    width: 18%;
+    margin-left: 41%;
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+#btn{
+    width: 100%
+}
+#edit{
+    text-align: center;
+
+}

@@ -44,10 +44,6 @@ class User implements UserInterface
      */
     private $password;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $fistName;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -59,35 +55,7 @@ class User implements UserInterface
      */
     private $birthday;
 
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $country;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $town;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $street;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $numStreet;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $zipCode;
-
-    /**
-     * @ORM\Column(type="string", length=10)
-     */
-    private $phoneNum;
 
     /**
      * @ORM\Column(type="string", length=100)

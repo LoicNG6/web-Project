@@ -44,22 +44,18 @@ class Article
      */
     private $content;
 
-
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\OneToMany(targetEntity="App\Entity\Pictures", mappedBy="article", orphanRemoval=true, cascade={"persist"})
      */
-    private $emergency;
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Pictures", mappedBy="Article", orphanRemoval=true, cascade={"persist"})
-     */
-    private $picture ;
-
+    private $picture;
     public function __construct()
     {
         $this->picture = new ArrayCollection();
     }
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $emergency;
 
 
     public function getId(): ?int
@@ -139,55 +135,25 @@ class Article
 
         return $this;
     }
-
     /**
      * @return Collection|Pictures[]
      */
-    public function getPictures(): Collection
-    {
-        return $this->picture ;
-    }
-
-    public function addPicture(Pictures $picture): self
-    {
-        if (!$this->picture ->contains($picture)) {
-            $this->picture [] = $picture;
-            $picture->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removePicture(Pictures $picture): self
-    {
-        if ($this->picture->removeElement($picture)) {
-            // set the owning side to null (unless already changed)
-            if ($picture->getArticle() === $this) {
-                $picture->setArticle(null);
-            }
-        }
-
-        return $this;
-    }
-    /**
-     * @return Collection|Pictures[]
-     */
-    public function getPicture (): Collection
+    public function getPicture(): Collection
     {
         return $this->picture;
     }
 
-    public function addPictures(Pictures $picture): self
+    public function addPicture(Pictures $image): self
     {
-        if (!$this->picture ->contains($picture)) {
-            $this->picture [] = $picture;
-            $picture->setArticle($this);
+        if (!$this->picture->contains($image)) {
+            $this->picture[] = $image;
+            $image->setArticle($this);
         }
 
         return $this;
     }
 
-    public function removePictures(Pictures $image): self
+    public function removePicture(Pictures $image): self
     {
         if ($this->picture->contains($image)) {
             $this->picture->removeElement($image);
@@ -199,6 +165,4 @@ class Article
 
         return $this;
     }
-
-
 }

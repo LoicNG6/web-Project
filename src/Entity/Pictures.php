@@ -2,17 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\PicturesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=PicturesRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\PicturesRepository")
  */
 class Pictures
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -23,11 +22,10 @@ class Pictures
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="pictures")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="pictures")
      * @ORM\JoinColumn(nullable=false)
      */
     private $article;
-
 
     public function getId(): ?int
     {
@@ -57,5 +55,4 @@ class Pictures
 
         return $this;
     }
-
 }
