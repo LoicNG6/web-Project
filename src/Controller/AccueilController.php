@@ -92,18 +92,35 @@ class AccueilController extends AbstractController
     /**
      * @Route("showArticle", name="showArticle")
      */
-    public  function showArticle(){
+    public  function showArticle(): Response
+    {
 
         return $this->render('accueil/showArticle.html.twig');
     }
     /**
      * @Route("msgSend", name="msgSend")
      */
-    public  function msgSend(){
+    public  function msgSend(): Response
+    {
 
         return $this->render('accueil/msgSend.html.twig');
     }
 
+    /**
+     * @Route("profil", name="profile1")
+     */
+    public function profil1(): Response
+    {
+        return $this->render('Profile/profile.html.twig');
+    }
+
+    /**
+     * @Route("profil2", name="profile2")
+     */
+    public function profil2(): Response
+    {
+        return $this->render('Profile/profile1.html.twig');
+    }
 
 
 }

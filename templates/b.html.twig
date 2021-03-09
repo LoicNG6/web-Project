@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        {% block head %}
+            <meta charset="UTF-8">
+            <title>{% block title %}What Happened ?{% endblock %}</title>
+            <link rel="stylesheet" href="{{ 'profiles.css' }}" type="text/css">
+            {% block stylesheets %}{% endblock %}
+            {% block javascripts %}{% endblock %}
+        {% endblock %}
+    </head>
+
+    <body >
+        {% block body %}<h1>profile</h1>{% endblock %}
+    </body>
+
+</html>

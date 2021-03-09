@@ -1,0 +1,29 @@
+{% extends 'b.html.twig' %}
+{% block body %}
+
+    <div class="center">
+    <table>
+        <h1>Choose what you want to do ?</h1>
+        <tr>
+            <td><button type="button" id="information">
+                <a href="{{ path('profile2') }}">Modify Information</a>
+            </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <button type="button" id="password">
+                <a href="change password">Change Password</a>
+            </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <button type="button" id="activity">
+                <a href="activity">See my Activity</a>
+            </button>
+            </td>
+        </tr>
+    </table>
+    </div>
+{% endblock %}
