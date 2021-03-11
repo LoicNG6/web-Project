@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Welcome to WH ?</title>
-    <link href="{{'choix.css'}}" type="text/css" rel="stylesheet">
+    <link href="{{'choice.css'}}" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                 <td>
                     <div class="connection">
                         <p> Want u write something ?</p>
-                        <button><a href="{{ path('login') }}">Sign in</a></button>
+                        <button><a href="{{ path('app_login') }}">Sign in</a></button>
                     </div>
                 </td>
                 <td>
@@ -28,7 +28,7 @@
                 <td>
                     <div class="inscription">
                         <p>Want to become a member ?</p>
-                        <button><a href="signIn.html.twig">Sign up</a></button>
+                        <button><a href="{{ path('register') }}">Sign up</a></button>
                     </div>
                 </td>
             </tr>

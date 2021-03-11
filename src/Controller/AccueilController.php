@@ -105,22 +105,4 @@ class AccueilController extends AbstractController
 
         return $this->render('accueil/msgSend.html.twig');
     }
-
-    /**
-     * @Route("profil", name="profile1")
-     */
-    public function profil1(): Response
-    {
-        return $this->render('Profile/profile.html.twig');
-    }
-
-    /**
-     * @Route("profil2", name="profile2")
-     */
-    public function profil2(): Response
-    {
-        return $this->render('Profile/profile1.html.twig');
-    }
-
-
 }

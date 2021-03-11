@@ -1,0 +1,32 @@
+{% extends 'b.html.twig' %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <div class="center">
+        <h1>Editing {{ app.User.firstName }} {{ app.user.lastName }}'s profile</h1>
+            {{ form_start(editProfile) }}
+            <table>
+                <tr>
+                    <td>{{ form_label(editProfile.email) }}</td>
+                    <td>{{ form_widget(editProfile.email) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(editProfile.firstName) }}</td>
+                    <td>{{ form_widget(editProfile.firstName) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(editProfile.lastName) }}</td>
+                    <td>{{ form_widget(editProfile.lastName) }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td> <button type="submit" id="btn">Confirm</button></td>
+                </tr>
+        </table>
+        {{ form_end(editProfile) }}
+
+    </div>
+{% endblock %}

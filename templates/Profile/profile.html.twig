@@ -1,29 +1,35 @@
 {% extends 'b.html.twig' %}
 {% block body %}
-
     <div class="center">
-    <table>
-        <h1>Choose what you want to do ?</h1>
-        <tr>
-            <td><button type="button" id="information">
-                <a href="{{ path('profile2') }}">Modify Information</a>
-            </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-            <button type="button" id="password">
-                <a href="change password">Change Password</a>
-            </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-            <button type="button" id="activity">
-                <a href="activity">See my Activity</a>
-            </button>
-            </td>
-        </tr>
-    </table>
+        <table>
+            <h1>Choose what you want to do ?</h1>
+            <tr>
+                <td>
+                    <a href="{{ path('editProfile') }}">
+                        <button type="button" id="information">
+                            Modify Information
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="change password">
+                        <button type="button" id="password">
+                            Change Password
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="activity">
+                        <button type="button" id="activity">
+                            See my Activity
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </table>
     </div>
 {% endblock %}

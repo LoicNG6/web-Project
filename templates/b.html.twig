@@ -4,8 +4,8 @@
     <head>
         {% block head %}
             <meta charset="UTF-8">
-            <title>{% block title %}What Happened ?{% endblock %}</title>
-            <link rel="stylesheet" href="{{ 'profiles.css' }}" type="text/css">
+            <title>{{ app.user.firstName }} {{ app.user.lastName }}'s profile</title>
+            <link rel="stylesheet" href="{{ 'profile_editProfile.css' }}" type="text/css">
             {% block stylesheets %}{% endblock %}
             {% block javascripts %}{% endblock %}
         {% endblock %}
