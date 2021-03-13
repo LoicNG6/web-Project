@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body%}
+
     <title>{% block title %}What happened ?{% endblock %}</title>
+
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- jQuery library -->
@@ -95,7 +97,7 @@
         </div>
     </div>
 
-    <div id="corp"  class="p-3 mb-2 bg-primary text-white">
+    <div id="corp">
         <div id="d_right" >
             <div >
                 <p>Our events</p>
@@ -105,18 +107,28 @@
         </div>
 
         <div id="d_center">
-            {% for article in emergency %}
+            {% for article in article %}
                 <section id ="art" class="articles">
+
                     <article>
-                        <h2> {{ article.title }}</h2>
-                        <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
-                            a {{ article.publicationdate | date('H:i')}} dans la categorie scientifique </div>
-                        <div class ="content">
-                            <img src="{{ article.picture }} " alt="">
-                            <P> voila le paragraphe de mon article</P>
-                        </div>
-                        <a href=" {{ path('showArticle') }}" class="btn btn-primary">Lire la suite</a>
-                    </article>
+                            <h2> {{ article.title }}</h2>
+                            <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
+                                a {{ article.publicationdate | date('H:i')}} dans la categorie scientifique </div>
+                            <div class ="content">
+                                <P> voila le paragraphe de mon article</P>
+                            </div>
+                            {% for image in article.pictures %}
+                                <div>
+                                    <img src="{{ asset('/uploads/') ~ image.name}}" alt="image" width="400" height="300">
+                                </div>
+                            {% endfor %}
+<<<<<<< HEAD
+                            <a href="{{ path('showArticle', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a>
+=======
+                            <a href=" {{ path('showArticle') }}" class="btn btn-primary">Lire la suite</a>
+>>>>>>> b5c1d338 (affichage des images des articles)
+                        </article>
+
                 </section>
             {% endfor %}
         </div>

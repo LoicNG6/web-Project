@@ -1,0 +1,18 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div id="ssss">
+         <h1>Edit Article</h1>
+    <div/>
+    {{ include('article/form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn-danger" href="{{ path('article_index') }}">back to list</a>
+
+    {{ include('article/delete_form.html.twig') }}
+
+
+
+    <script src="{{ asset('js/images.js') }}"></script>
+{% endblock %}
+

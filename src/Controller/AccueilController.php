@@ -22,7 +22,6 @@ use function Sodium\add;
 
 class AccueilController extends AbstractController
 {
-
     private $articleRepository;
     private $events;
     private $msg;
@@ -58,8 +57,8 @@ class AccueilController extends AbstractController
      */
     public function home( Request $request,ObjectManager $manager):Response
     {
-        $emergency = $this->articleRepository->findAll();
-        $article = $this->articleRepository->findBy(array('emergency' => true));
+        $article = $this->articleRepository->findAll();
+        $emergency= $this->articleRepository->findBy(array('emergency' => true));
         $Events = $this->events->findall();
 
             $message = new Message();
@@ -90,13 +89,6 @@ class AccueilController extends AbstractController
     }
 
     /**
-     * @Route("showArticle", name="showArticle")
-     */
-    public  function showArticle(){
-
-        return $this->render('accueil/showArticle.html.twig');
-    }
-    /**
      * @Route("msgSend", name="msgSend")
      */
     public  function msgSend(){
@@ -104,6 +96,13 @@ class AccueilController extends AbstractController
         return $this->render('accueil/msgSend.html.twig');
     }
 
-
-
+    /**
+     * @Route("/{id}", name="showArticle", methods={"GET"})
+     */
+    public function show(Article $article): Response
+    {
+        return $this->render('accueil/showArticle.html.twig', [
+            'article' => $article,
+        ]);
+    }
 }

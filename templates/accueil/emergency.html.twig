@@ -1,10 +1,9 @@
 
     {% block body%}
             <p>Emergency article</p>
-         {% for articles in article %}
+         {% for articles in emergency %}
 
              <h4> {{ articles.title }}</h4>
-             <a href=" {{ path('showArticle') }}" class="btn btn-primary">Lire la suite</a>
 
         {% endfor %}
     {% endblock %}
