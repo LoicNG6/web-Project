@@ -68,15 +68,6 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="article_show", methods={"GET"})
-     */
-    public function show(Article $article): Response
-    {
-        return $this->render('article/show.html.twig', [
-            'article' => $article,
-        ]);
-    }
 
     /**
      * @Route("/{id}/edit", name="article_edit", methods={"GET","POST"})

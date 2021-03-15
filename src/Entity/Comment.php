@@ -19,10 +19,6 @@ class Comment
      */
     private $id;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="comment")
-     */
-    private $articleId;
 
 
     /**
@@ -35,10 +31,6 @@ class Comment
      */
     private $articlId;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comments")
-     */
-    private $userId;
 
     /**
      * @ORM\Column(type="boolean")
@@ -72,12 +64,6 @@ class Comment
     private $article;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comment")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Comment::class, inversedBy="replies")
      */
     private $parent;
@@ -89,8 +75,6 @@ class Comment
 
     public function __construct()
     {
-        $this->articleId = new ArrayCollection();
-        $this->userId = new ArrayCollection();
         $this->replies = new ArrayCollection();
     }
 
@@ -156,17 +140,6 @@ class Comment
         return $this;
     }
 
-    public function getUserId(): ?User
-    {
-        return $this->UserId;
-    }
-
-    public function setRelation(?User $userId): self
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
 
     public function getActive(): ?bool
     {

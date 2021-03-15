@@ -13,22 +13,21 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-<<<<<<< HEAD
 
             ->add('title')
             ->add('content')
             ->add('publication_date')
             ->add('emergency')
             ->add('picture', FileType::class ,[
-                'label'=> 'false',
-=======
+                'label'=> 'false'
+            ])
             ->add('publication_date')
             ->add('title')
             ->add('content')
             ->add('emergency')
             ->add('images', FileType::class ,[
                 'label'=> false,
->>>>>>> b5c1d338 (affichage des images des articles)
+
                 'multiple' => true,
                 'mapped' => false,
                 'required' => true,

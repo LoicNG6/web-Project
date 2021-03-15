@@ -92,17 +92,7 @@ class AccueilController extends AbstractController
      * @Route("msgSend", name="msgSend")
      */
     public  function msgSend(){
-
         return $this->render('accueil/msgSend.html.twig');
     }
 
-    /**
-     * @Route("/{id}", name="showArticle", methods={"GET"})
-     */
-    public function show(Article $article): Response
-    {
-        return $this->render('accueil/showArticle.html.twig', [
-            'article' => $article,
-        ]);
-    }
 }

@@ -3,34 +3,36 @@
 namespace App\Form;
 
 use App\Entity\Comment;
-use Doctrine\DBAL\Types\TextType;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 
 class CommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+          $builder
             ->add('email',EmailType::class,[
-                'lable' => 'votre email',
+                'label' => 'votre email',
                 'attr'  => [
                     'class' => 'form-control'
                 ]
             ])
             ->add('nickname',TextType::class,[
-                'lable' => 'votre pseudo',
+                'label' => 'votre pseudo',
                 'attr'  => [
                     'class' => 'form-control'
                 ]
             ])
             ->add('text',TextType::class,[
-                'lable' => 'commenter',
+                'label' => 'commenter',
                 'attr'  => [
                     'class' => 'form-control'
                 ]
@@ -40,6 +42,7 @@ class CommentType extends AbstractType
                 'mapped' => false
             ])
             ->add('submit', SubmitType::class)
+              ->getform();
         ;
     }
 

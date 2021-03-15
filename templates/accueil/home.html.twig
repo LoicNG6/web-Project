@@ -109,7 +109,7 @@
         <div id="d_center">
             {% for article in article %}
                 <section id ="art" class="articles">
-
+                    <h1>Article Numéro : {{ article.id }}</h1>
                     <article>
                             <h2> {{ article.title }}</h2>
                             <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
@@ -122,11 +122,10 @@
                                     <img src="{{ asset('/uploads/') ~ image.name}}" alt="image" width="400" height="300">
                                 </div>
                             {% endfor %}
-<<<<<<< HEAD
-                            <a href="{{ path('showArticle', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a>
-=======
-                            <a href=" {{ path('showArticle') }}" class="btn btn-primary">Lire la suite</a>
->>>>>>> b5c1d338 (affichage des images des articles)
+
+                            <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a>
+
+
                         </article>
 
                 </section>

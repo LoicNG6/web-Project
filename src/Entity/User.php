@@ -110,18 +110,14 @@ class User implements UserInterface
      */
     private $messages;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="user", orphanRemoval=true)
-     */
-    private $comment;
 
     public function __construct()
     {
-        $this->comments = new ArrayCollection();
+
         $this->evenents = new ArrayCollection();
         $this->y = new ArrayCollection();
         $this->messages = new ArrayCollection();
-        $this->comment = new ArrayCollection();
+
     }
 
 
@@ -402,36 +398,6 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($message->getUser() === $this) {
                 $message->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Comment[]
-     */
-    public function getComment(): Collection
-    {
-        return $this->comment;
-    }
-
-    public function addComment(Comment $comment): self
-    {
-        if (!$this->comment->contains($comment)) {
-            $this->comment[] = $comment;
-            $comment->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeComment(Comment $comment): self
-    {
-        if ($this->comment->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
-            if ($comment->getUser() === $this) {
-                $comment->setUser(null);
             }
         }
 

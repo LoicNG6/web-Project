@@ -2,6 +2,7 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
+
     <div id="indx">
         <h1>Article Numéro : {{ article.id }}</h1>
     </div>
@@ -14,11 +15,24 @@
                     <img id="img" src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
                 </div>
             {% endfor %}
-                <div>{{ article.publicationDate ? article.publicationDate|date('Y-m-d') : '' }}</div>
-                <div>{{ article.content }}</div>
+            <div>{{ article.publicationDate ? article.publicationDate|date('Y-m-d') : '' }}</div>
+            <div>{{ article.content }}</div>
             </tbody>
 
-             <a id="show" class="btn-danger" href="{{ path('home') }}">back to page home</a>
+            <a id="show" class="btn-danger" href="{{ path('home') }}">back to page home</a>
+        </div>
+        <div class="grix xs2 sm3 gutter-0 card">
+            <div class="col-xs2 col-sm3">
+                <h2>Liste des commentaires</h2>
+                {% for comment in article.comments %}
+                    <h5> publié par {{ comment.nickname }} le {{ comment.createdAt|date("d/m/Y H:i") }}</h5>
+                    <div> {{ comment.text }}</div>
+                {% endfor %}
+            </div>
+            <div class="col-xs2 col-sm3">
+                <h2>Ajouter un commentaire commentaires</h2>
+                {{ form(commentForm) }}
+            </div>
         </div>
     </div>
 {% endblock %}
