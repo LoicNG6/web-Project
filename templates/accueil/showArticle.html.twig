@@ -10,29 +10,48 @@
         <div id="tabe">
             <h1>{{ article.title }}</h1>
             <tbody >
-            {% for image in article.pictures  %}
-                <div >
-                    <img id="img" src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
-                </div>
-            {% endfor %}
-            <div>{{ article.publicationDate ? article.publicationDate|date('Y-m-d') : '' }}</div>
-            <div>{{ article.content }}</div>
-            </tbody>
-
-            <a id="show" class="btn-danger" href="{{ path('home') }}">back to page home</a>
-        </div>
-        <div class="grix xs2 sm3 gutter-0 card">
-            <div class="col-xs2 col-sm3">
-                <h2>Liste des commentaires</h2>
-                {% for comment in article.comments %}
-                    <h5> publié par {{ comment.nickname }} le {{ comment.createdAt|date("d/m/Y H:i") }}</h5>
-                    <div> {{ comment.text }}</div>
+                {% for image in article.pictures  %}
+                    <div id="img">
+                        <img id="img" src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
+                    </div>
                 {% endfor %}
-            </div>
-            <div class="col-xs2 col-sm3">
+                <div>{{ article.publicationDate ? article.publicationDate|date('Y-m-d') : '' }}</div>
+                <div>{{ article.content }}</div>
+            </tbody>
+        </div>
+
+        <div id="comments" class="grix xs2 sm3 gutter-0 card">
+                <h2 id="liste">Liste des commentaires</h2>
+                {% for comment in article.comments %}
+                    {% if comment.parent == null %}
+                        <div id="commentaire">
+                            <h3>Commentaire {{ loop.index }}</h3>
+                        </div>
+                        <div>
+                            <h5> {{ comment.text }} </h5>
+                            <p>publié par {{ comment.nickname }} le {{ comment.createdAt|date("d/m/Y H:i") }}</p>
+                            <p><a href="#comments_form" data-reply data-id="{{ comment.id }}" class="btn-outline-success">Répondre</a> </p>
+                        </div>
+
+                        {% for reply in comment.replies %}
+                            <p> réponse publié  par {{ reply.nickname }} le {{ reply.createdAt|date("d/m/Y H:i") }}</p>
+                            <div> <h5> {{ reply.text }}</h5></div>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+
+            <div class="col-xs2 col-sm3" id="comments_form">
                 <h2>Ajouter un commentaire commentaires</h2>
                 {{ form(commentForm) }}
             </div>
         </div>
     </div>
+    <div>
+        <a id="show" class="btn-danger" href="{{ path('home') }}">back to page home</a>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/recup_comment.js') }}"></script>
+
 {% endblock %}

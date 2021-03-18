@@ -27,13 +27,18 @@ class ShowController extends AbstractController
     public function show(Article $article, Request $request,ObjectManager $manager): Response
     {
         $comments = new Comment();
-        $commentForm = $this->createForm(CommentType::class);
-
+        $commentForm = $this->createForm(CommentType::class,$comments);
         $commentForm->handleRequest($request);
 
         if($commentForm->isSubmitted() && $commentForm->isValid()){
             $comments->setCreatedAt(new DateTime());
             $comments->setArticle($article);
+
+            $parentid = $commentForm->get("parent")->getData();
+            $entityManager= $this->getDoctrine()->getManager();
+            $parent = $entityManager->getRepository(Comment::class)->find($parentid);
+
+            $comments->setParent($parent);
 
             $manager=$this->getDoctrine()->getManager();
             $manager->persist($comments);

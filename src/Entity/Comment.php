@@ -113,9 +113,6 @@ class Comment
         return $this;
     }
 
-
-
-
     public function getText(): ?string
     {
         return $this->text;

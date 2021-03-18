@@ -36,7 +36,7 @@ class CommentType extends AbstractType
                 'attr'  => [
                     'class' => 'form-control'
                 ]
-            ])
+            ])  
             ->add('rgpd', CheckboxType::class)
             ->add('parent', HiddenType::class,[
                 'mapped' => false
