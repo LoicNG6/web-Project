@@ -39,19 +39,13 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\Length(min=8,minMessage="Le mot de passe doit faire minimum 8caractères")
      */
     private $password;
 
     /**
-     * @Assert\EqualTo(propertyPath="password",message="Les mots de passe ne correspondent pas")
+     * @Assert\EqualTo(propertyPath="password", message="Les mots de passe ne correspondent pas")
      */
     private $confirmPassword;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $userName;
 
     /**
      * @ORM\Column(type="json")
@@ -74,16 +68,6 @@ class User implements UserInterface
     private $birthday;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $companyName;
-
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $companyCountry;
-
-    /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="relation")
      */
     private $comments;
@@ -94,11 +78,6 @@ class User implements UserInterface
     private $evenents;
 
     /**
-     * @ORM\OneToMany(targetEntity=Admin::class, mappedBy="User")
-     */
-    private $y;
-
-    /**
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="user")
      */
     private $messages;
@@ -107,6 +86,27 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
+
+    /**
+     * @ORM\Column(type="boolean", length=255, nullable=true)
+     */
+
+    private $company;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $companyName;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $companyCountry;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $companyEmail;
 
     public function __construct()
     {
@@ -201,7 +201,7 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        // $this->password = null;
+        // $this->plainPassword = null;
     }
 
     public function getFirstName(): ?string
@@ -236,30 +236,6 @@ class User implements UserInterface
     public function setBirthday(\DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
-
-        return $this;
-    }
-
-    public function getCompanyCountry(): ?string
-    {
-        return $this->companyCountry;
-    }
-
-    public function setCompanyCountry(string $companyCountry): self
-    {
-        $this->companyCountry = $companyCountry;
-
-        return $this;
-    }
-
-    public function getCompanyName(): ?string
-    {
-        return $this->companyName;
-    }
-
-    public function setCompanyName(string $companyName): self
-    {
-        $this->companyName = $companyName;
 
         return $this;
     }
@@ -301,35 +277,6 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Admin[]
-     */
-    public function getY(): Collection
-    {
-        return $this->y;
-    }
-
-    public function addY(Admin $y): self
-    {
-        if (!$this->y->contains($y)) {
-            $this->y[] = $y;
-            $y->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeY(Admin $y): self
-    {
-        if ($this->y->removeElement($y)) {
-            // set the owning side to null (unless already changed)
-            if ($y->getUser() === $this) {
-                $y->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Message[]
@@ -373,5 +320,52 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getCompany(): ?bool
+    {
+        return $this->company;
+    }
+
+    public function setCompany(bool $company): self
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    public function getCompanyName(): ?string
+    {
+        return $this->companyName;
+    }
+
+    public function setCompanyName(?string $companyName): self
+    {
+        $this->companyName = $companyName;
+
+        return $this;
+    }
+
+    public function getCompanyCountry(): ?string
+    {
+        return $this->companyCountry;
+    }
+
+    public function setCompanyCountry(?string $companyCountry): self
+    {
+        $this->companyCountry = $companyCountry;
+
+        return $this;
+    }
+
+    public function getCompanyEmail(): ?string
+    {
+        return $this->companyEmail;
+    }
+
+    public function setCompanyEmail(?string $companyEmail): self
+    {
+        $this->companyEmail = $companyEmail;
+
+        return $this;
+    }
 }
 
