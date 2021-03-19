@@ -9,14 +9,9 @@
         <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
         <table>
             <form method="post">
-                {% if app.user %}
-                    <div class="mb-3">
-                        You are logged in as {{ app.user.username }}, <a href="{{ path('logout') }}">Logout</a>
-                    </div>
-                {% endif %}
                 <tr>
                     <td><label for="inputEmail">Email</label></td>
-                    <td><input type="email" name="email" id="inputEmail" class="form-control" required autofocus></td>
+                    <td><input type="email"  name="email" id="inputEmail" class="form-control" required autofocus></td>
                 </tr>
                 <tr>
                     <td><label for="inputPassword">Password</label></td>

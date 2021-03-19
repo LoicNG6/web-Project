@@ -30,7 +30,6 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
@@ -66,14 +65,11 @@ class RegistrationController extends AbstractController
 
 
     /**
-     * @Route("/editProfile", name="editProfile")
+     * @Route("/editProfile", name="edit_profile")
      * @param Request $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
-     * @param GuardAuthenticatorHandler $guardHandler
-     * @param LoginUserAuthenticator $authenticator
      * @return Response
      */
-    public function editProfile(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginUserAuthenticator $authenticator): Response
+    public function editProfile(Request $request): Response
     {
         $user= $this->getUser();
         $form = $this->createForm(EditProfileType::class, $user);
@@ -84,18 +80,12 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
 
-            $this->addFlash('message', 'success');
-            return $guardHandler->authenticateUserAndHandleSuccess(
-                $user,
-                $request,
-                $authenticator,
-                'main' // firewall name in security.yaml
-            );
+            $this->addFlash('message', 'done');
+            return $this->redirectToRoute('profile');
         }
 
-        return $this->render('Profile/editProfile.html.twig', [
+        return $this->render('Profile/edit_profile.html.twig', [
             'editProfile' => $form->createView(),
         ]);
     }

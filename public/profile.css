@@ -50,3 +50,9 @@ a{
     color:black;
     text-decoration: none;
 }
+.flash{
+    background-color: green;
+    width: 100px;
+    text-align: center;
+    color: white;
+}
