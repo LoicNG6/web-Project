@@ -32,6 +32,11 @@ class Company
      */
     private $emailCompany;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $emailCompany;
+
     public function getId(): ?int
     {
         return $this->id;
