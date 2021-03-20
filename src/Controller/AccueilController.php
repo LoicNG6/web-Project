@@ -56,13 +56,6 @@ class AccueilController extends AbstractController
     }
 
 
-    /**
-     * @Route("/", name="choose")
-     */
-    public function choose()
-    {
-        return $this->render('accueil/choose.html.twig');
-    }
 
     /**
      * @Route("/home", name="home")
