@@ -18,16 +18,8 @@ class ArticleType extends AbstractType
             ->add('content')
             ->add('publication_date')
             ->add('emergency')
-            ->add('picture', FileType::class ,[
-                'label'=> 'false'
-            ])
-            ->add('publication_date')
-            ->add('title')
-            ->add('content')
-            ->add('emergency')
             ->add('images', FileType::class ,[
                 'label'=> false,
-
                 'multiple' => true,
                 'mapped' => false,
                 'required' => true,

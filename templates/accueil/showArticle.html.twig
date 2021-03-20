@@ -34,7 +34,7 @@
                         </div>
 
                         {% for reply in comment.replies %}
-                            <p> réponse publié  par {{ reply.nickname }} le {{ reply.createdAt|date("d/m/Y H:i") }}</p>
+                            <p> réponse publié  par {{ reply.nickname }}  le {{ reply.createdAt|date("d/m/Y H:i") }}</p>
                             <div> <h5> {{ reply.text }}</h5></div>
                         {% endfor %}
                     {% endif %}

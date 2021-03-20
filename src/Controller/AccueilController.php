@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Message;
+use App\Form\ArticleType;
+use App\Form\Form1Type;
 use App\Repository\ArticleRepository;
 use App\Repository\EvenentRepository;
 use App\Repository\MessageRepository;
@@ -62,16 +64,8 @@ class AccueilController extends AbstractController
         $Events = $this->events->findall();
 
             $message = new Message();
-            $form = $this->createFormBuilder($message)
-                ->add('name',TextType::class )
-                ->add('fist_name',TextType::class)
-                ->add('email',EmailType::class)
-                ->add('date',DateType::class)
-                ->add('content',TextareaType::class)
-                ->getform();
-
+            $form = $this->createForm(Form1Type::class, $message);
             $form->handleRequest($request);
-
             if($form->isSubmitted() && $form->isValid()){
 
                 $manager->persist($message);
