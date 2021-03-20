@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use PhpParser\Node\Scalar\String_;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name=" user")
@@ -40,12 +41,11 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
-    private $confirmPassword;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @Assert\EqualTo(propertyPath="password", message="Les mots de passe ne correspondent pas")
      */
-    private $userName;
+    private $confirmPassword;
 
     /**
      * @ORM\Column(type="json")
@@ -76,7 +76,7 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity=Evenent::class, mappedBy="User")
      */
     private $evenents;
-    
+
     /**
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="user")
      */
@@ -88,9 +88,25 @@ class User implements UserInterface
     private $isVerified = false;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", length=255, nullable=true)
      */
+
     private $company;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $companyName;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $companyCountry;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $companyEmail;
 
     public function __construct()
     {
@@ -312,6 +328,42 @@ class User implements UserInterface
     public function setCompany(bool $company): self
     {
         $this->company = $company;
+
+        return $this;
+    }
+
+    public function getCompanyName(): ?string
+    {
+        return $this->companyName;
+    }
+
+    public function setCompanyName(?string $companyName): self
+    {
+        $this->companyName = $companyName;
+
+        return $this;
+    }
+
+    public function getCompanyCountry(): ?string
+    {
+        return $this->companyCountry;
+    }
+
+    public function setCompanyCountry(?string $companyCountry): self
+    {
+        $this->companyCountry = $companyCountry;
+
+        return $this;
+    }
+
+    public function getCompanyEmail(): ?string
+    {
+        return $this->companyEmail;
+    }
+
+    public function setCompanyEmail(?string $companyEmail): self
+    {
+        $this->companyEmail = $companyEmail;
 
         return $this;
     }

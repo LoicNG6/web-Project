@@ -45,6 +45,8 @@ class AccueilController extends AbstractController
         ]);
     }
 
+
+
     /**
      * @Route("/", name="choose")
      */
@@ -52,6 +54,8 @@ class AccueilController extends AbstractController
     {
         return $this->render('accueil/choose.html.twig');
     }
+
+
 
     /**
      * @Route("/home", name="home")
@@ -62,23 +66,23 @@ class AccueilController extends AbstractController
         $article = $this->articleRepository->findBy(array('emergency' => true));
         $Events = $this->events->findall();
 
-            $message = new Message();
-            $form = $this->createFormBuilder($message)
-                ->add('name',TextType::class )
-                ->add('fist_name',TextType::class)
-                ->add('email',EmailType::class)
-                ->add('date',DateType::class)
-                ->add('content',TextareaType::class)
-                ->getform();
+        $message = new Message();
+        $form = $this->createFormBuilder($message)
+            ->add('name',TextType::class )
+            ->add('fist_name',TextType::class)
+            ->add('email',EmailType::class)
+            ->add('date',DateType::class)
+            ->add('content',TextareaType::class)
+            ->getform();
 
-            $form->handleRequest($request);
+        $form->handleRequest($request);
 
-            if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()){
 
-                $manager->persist($message);
-                $manager->flush();
-                return $this->redirectToRoute('msgSend',['id' =>$message->getId()]);
-            }
+            $manager->persist($message);
+            $manager->flush();
+            return $this->redirectToRoute('msgSend',['id' =>$message->getId()]);
+        }
 
         return $this->render('accueil/home.html.twig', [
             'emergency' => $emergency,
