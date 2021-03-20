@@ -28,6 +28,7 @@ class ShowController extends AbstractController
     {
         $comments = new Comment();
         $commentForm = $this->createForm(CommentType::class,$comments);
+
         $commentForm->handleRequest($request);
 
         if($commentForm->isSubmitted() && $commentForm->isValid()){
@@ -35,11 +36,12 @@ class ShowController extends AbstractController
             $comments->setArticle($article);
 
             $parentid = $commentForm->get("parent")->getData();
-            $entityManager= $this->getDoctrine()->getManager();
-            $parent = $entityManager->getRepository(Comment::class)->find($parentid);
+            $eManager= $this->getDoctrine()->getManager();
 
-            $comments->setParent($parent);
-
+            if($parentid !=null){
+                $parent = $eManager->getRepository(Comment::class)->find($parentid);
+            }
+            $comments->setParent($parent ?? null);
             $manager=$this->getDoctrine()->getManager();
             $manager->persist($comments);
             $manager->flush();
