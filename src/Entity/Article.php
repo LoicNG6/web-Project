@@ -44,7 +44,6 @@ class Article
      */
     private $content;
 
-
     /**
      * @ORM\Column(type="boolean")
      */
@@ -59,7 +58,6 @@ class Article
     {
         $this->pictures = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -86,7 +84,6 @@ class Article
     public function setPublicationDate(\DateTimeInterface $publication_date): self
     {
         $this->publication_date = $publication_date;
-
         return $this;
     }
 
@@ -98,7 +95,6 @@ class Article
     public function setGenreId(?Genre $genre_id): self
     {
         $this->genre_id = $genre_id;
-
         return $this;
     }
 
@@ -110,7 +106,6 @@ class Article
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
         return $this;
     }
 
@@ -122,10 +117,8 @@ class Article
     public function setContent(string $content): self
     {
         $this->content = $content;
-
         return $this;
     }
-
 
     public function getEmergency(): ?bool
     {
@@ -135,7 +128,6 @@ class Article
     public function setEmergency(bool $emergency): self
     {
         $this->emergency = $emergency;
-
         return $this;
     }
 
@@ -153,7 +145,6 @@ class Article
             $this->pictures[] = $picture;
             $picture->setArticle($this);
         }
-
         return $this;
     }
 

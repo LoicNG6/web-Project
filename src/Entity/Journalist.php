@@ -23,6 +23,11 @@ class Journalist extends User
      */
     private $redacteurChef;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="journalist_id")
+     */
+    private $articles;
+
     public function getIndependant(): ?bool
     {
         return $this->Independant;
@@ -40,5 +45,13 @@ class Journalist extends User
         return $this->redacteurChef;
     }
 
-
+    public function getArticles(): ?Article
+    {
+        return $this->articles;
+    }
+    public function setArticles(?Article $articles): self
+    {
+        $this->articles = $articles;
+        return $this;
+    }
 }

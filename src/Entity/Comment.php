@@ -24,7 +24,6 @@ class Comment
      */
     private $articleId;
 
-
     /**
      * @ORM\Column(type="text")
      */
