@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="bootstrap.min (2).css">
+<link rel="stylesheet" type="text/css" href="inscription.css">
+
+{% block title %}Inscription{% endblock %}
+
+
+
+
+{% block body %}
+
+    {% block javascripts %}
+        <script>
+            function hasCompany() {
+                let nom = document.getElementsByClassName('nom')[0];
+                let pays = document.getElementsByClassName('pays')[0];
+                let mail = document.getElementsByClassName('email')[0];
+                let labNom = document.getElementById('labNom');
+                let labPays = document.getElementById('labPays');
+                let labMail = document.getElementById('labMail');
+                if(document.getElementsByClassName('comp')[0].checked){
+                    labNom.style.display = "block";
+                    labPays.style.display = "block";
+                    labMail.style.display = "block";
+                    nom.style.display = "block";
+                    pays.style.display = "block";
+                    mail.style.display = "block";
+                }else{
+                    labNom.style.display = "none";
+                    labPays.style.display = "none";
+                    labMail.style.display = "none";
+                    nom.style.display = "none";
+                    pays.style.display = "none";
+                    mail.style.display = "none";
+                }
+            }
+
+            function noCompany() {
+                let elem = document.getElementById('visible');
+                elem.style.display = "none";
+            }
+
+        </script>
+
+    {% endblock %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>Register</h1>
+    <div class="row" style="color:rgba(0,0,128,1);
+    background-color:rgba(230,255,255,1);
+    border-radius:100px;
+    width:1000px;
+    height: 1450px;
+    margin: 80px auto 100px;
+    padding-top:60px;">
+        <fieldset style="margin-left: 30%">
+            <legend style="color: blue">Veuillez renseigner vos informations</legend>
+            {{ form_start(registrationForm) }}
+            <div class="col">{{ form_row(registrationForm.firstName, {'label': 'Prénom'}) }}</div>
+            <div class="col">{{ form_row(registrationForm.lastName, {'label': 'Nom'}) }}</div>
+            <div class="col">{{ form_row(registrationForm.email, {'label': 'Email'}) }}</div>
+            <div class="col">{{ form_row(registrationForm.password, {'label': 'Mot de passe'}) }}</div>
+            <div class="col">{{ form_row(registrationForm.confirmPassword, {'label': 'Confirmation du mot de passe'}) }}</div>
+            <label style="color: darkblue; margin-left: 30px">Date de naissance</label>
+            <div class="col" style="margin-left: 16px">{{ form_row(registrationForm.birthday) }}</div>
+
+            <div class="col">Cochez la case si vous travaillez dans une compagnie?
+            {{ form_row(registrationForm.company, {'attr':{'onclick':'hasCompany()', 'class': 'comp'}}) }}
+            </div>
+            <div><label id="labNom" style="display: none">Nom de la compagnie</label>
+            {{ form_row(registrationForm.companyName, {'attr':{'onclick':'hasCompany()', 'class': 'nom','style': 'display: none;'}}) }}
+                <div><label id="labPays" style="display: none">Pays de la compagnie</label>
+            {{ form_row(registrationForm.companyCountry, {'attr':{'onclick':'hasCompany()', 'class': 'pays','style': 'display: none;'}}) }}
+                    <div><label id="labMail" style="display: none">Email de la compagnie</label>
+            {{ form_row(registrationForm.companyEmail, {'attr':{'onclick':'hasCompany()', 'class': 'email','style': 'display: none;'}}) }}
+
+            <button type="submit" class="btn btn-success" style="margin-left: 30%">Inscription</button>
+        </fieldset>
+    </div>
+    {{ form_end(registrationForm) }}
+{% endblock %}

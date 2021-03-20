@@ -6,26 +6,31 @@ use App\Repository\CompanyRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CompanyRepository::class)
- */
+* @ORM\Entity(repositoryClass=CompanyRepository::class)
+*/
 class Company
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+/**
+* @ORM\Id
+* @ORM\GeneratedValue
+* @ORM\Column(type="integer")
+*/
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
+/**
+* @ORM\Column(type="string", length=100)
+*/
     private $Name;
 
-    /**
-     * @ORM\Column(type="string", length=100, nullable=true)
-     */
+/**
+* @ORM\Column(type="string", length=100, nullable=true)
+*/
     private $Contry;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $emailCompany;
 
     /**
      * @ORM\Column(type="string", length=255)
