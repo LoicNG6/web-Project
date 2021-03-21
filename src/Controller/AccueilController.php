@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
 use App\Entity\Article;
 use App\Entity\Message;
+use App\Form\SearchForm;
 use App\Repository\ArticleRepository;
 use App\Repository\EvenentRepository;
 use App\Repository\MessageRepository;
@@ -62,9 +64,13 @@ class AccueilController extends AbstractController
      */
     public function home( Request $request,ObjectManager $manager):Response
     {
-        $emergency = $this->articleRepository->findAll();
         $article = $this->articleRepository->findBy(array('emergency' => true));
         $Events = $this->events->findall();
+
+        $data = new SearchData();
+        $formSearch = $this->createForm(SearchForm::class, $data);
+        $formSearch->handleRequest($request);
+        $emergency = $this->articleRepository->findSearch($data);
 
         $message = new Message();
         $form = $this->createFormBuilder($message)
@@ -88,7 +94,8 @@ class AccueilController extends AbstractController
             'emergency' => $emergency,
             'article' => $article,
             'Events' => $Events,
-            'formMessage' => $form->createView()
+            'formMessage' => $form->createView(),
+            'formSearch' => $formSearch->createView()
 
         ]);
     }
