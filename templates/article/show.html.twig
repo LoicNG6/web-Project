@@ -1,13 +1,11 @@
-
 {% extends 'base.html.twig' %}
+
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <div id="indx">
-        <h1>Article</h1>
-    </div>
+    <h1>Article</h1>
 
-    <table id="tabe" class="table">
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -32,9 +30,9 @@
         </tbody>
     </table>
 
-    <a id="show" class="btn-danger" href="{{ path('article_index') }}">back to list</a>
+    <a href="{{ path('article_index') }}">back to list</a>
 
-    <a id="edit" class="btn-success" href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
 
-    {{ include('article/delete_form.html.twig') }}
+    {{ include('article/_delete_form.html.twig') }}
 {% endblock %}

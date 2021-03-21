@@ -1,13 +1,13 @@
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Article index{% endblock %}
 
 {% block body %}
+
     <div id="indx">
-    <h1>Article index</h1>
+        <h1>Article index</h1>
     </div>
-    <table id="tabe" class="table">
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for article in articles %}
+        {% for article in article %}
             <tr>
                 <td>{{ article.id }}</td>
                 <td>{{ article.publicationDate ? article.publicationDate|date('Y-m-d') : '' }}</td>
@@ -27,8 +27,8 @@
                 <td>{{ article.content }}</td>
                 <td>{{ article.emergency ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a class="btn-outline-success"href="{{ path('article_show', {'id': article.id}) }}">show</a>
-                    <a class="btn-outline-danger" href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                    <a class="btn btn-outline-info" href="{{ path('article_show', {'id': article.id}) }}">show</a>
+                    <a class="btn btn-outline-danger" href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +39,5 @@
         </tbody>
     </table>
 
-    <a id="aer"  class="btn-success" href="{{ path('article_new') }}">Create new</a>
+    <a id="create" class="btn btn-success" href="{{ path('article_new') }}">Create new</a>
 {% endblock %}

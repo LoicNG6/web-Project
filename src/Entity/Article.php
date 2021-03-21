@@ -44,27 +44,18 @@ class Article
      */
     private $content;
 
-
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Pictures", mappedBy="article", orphanRemoval=true, cascade={"persist"})
+     */
+    private $picture;
+    public function __construct()
+    {
+        $this->picture = new ArrayCollection();
+    }
     /**
      * @ORM\Column(type="boolean")
      */
     private $emergency;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Pictures::class, mappedBy="article", orphanRemoval=true, cascade={"persist"})
-     */
-    private $pictures;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article", orphanRemoval=true)
-     */
-    private $comments;
-
-    public function __construct()
-    {
-        $this->pictures = new ArrayCollection();
-        $this->comments = new ArrayCollection();
-    }
 
 
     public function getId(): ?int
@@ -144,69 +135,34 @@ class Article
 
         return $this;
     }
-
     /**
      * @return Collection|Pictures[]
      */
-    public function getPictures(): Collection
+    public function getPicture(): Collection
     {
-        return $this->pictures;
+        return $this->picture;
     }
 
-    public function addPicture  (Pictures $picture): self
+    public function addPicture(Pictures $image): self
     {
-        if (!$this->pictures->contains($picture)) {
-            $this->pictures[] = $picture;
-            $picture->setArticle($this);
+        if (!$this->picture->contains($image)) {
+            $this->picture[] = $image;
+            $image->setArticle($this);
         }
 
         return $this;
     }
 
-    public function removePicture(Pictures $picture): self
+    public function removePicture(Pictures $image): self
     {
-        if ($this->pictures->removeElement($picture)) {
+        if ($this->picture->contains($image)) {
+            $this->picture->removeElement($image);
             // set the owning side to null (unless already changed)
-            if ($picture->getArticle() === $this) {
-                $picture->setArticle(null);
+            if ($image->getArticle() === $this) {
+                $image->setArticle(null);
             }
         }
 
         return $this;
     }
-
-    public function setPicture(string $string)
-    {
-    }
-
-    /**
-     * @return Collection|Comment[]
-     */
-    public function getComments(): Collection
-    {
-        return $this->comments;
-    }
-
-    public function addComment(Comment $comment): self
-    {
-        if (!$this->comments->contains($comment)) {
-            $this->comments[] = $comment;
-            $comment->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeComment(Comment $comment): self
-    {
-        if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
-            if ($comment->getArticle() === $this) {
-                $comment->setArticle(null);
-            }
-        }
-
-        return $this;
-    }
-
 }

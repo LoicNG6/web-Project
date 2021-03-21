@@ -1,8 +1,20 @@
 {% extends 'base.html.twig' %}
-
+{% block body%}
 {{ form_start(form) }}
     {{ form_widget(form) }}
 
 
-{{ form_end(form) }}
+    {% if app.request.attributes.get('_route') == 'article_edit' %}
+        <h2>Images</h2>
+        {% for image in article.picture %}
+            <div>
+                <img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
+                <a href="{{ path('article_delete_images', {id: image.id})}}"
+                   data-delete data-token="{{ csrf_token('delete' ~ image.id )}}">Supprimer</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+<button id="btn" class="btn-success">{{ button_label|default('Save') }}</button>
 
+{{ form_end(form) }}
+{% endblock body%}
