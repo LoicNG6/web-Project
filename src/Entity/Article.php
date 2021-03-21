@@ -20,11 +20,6 @@ class Article
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Journalist::class, inversedBy="articles")
-     */
-    private $journalist_id;
-
-    /**
      * @ORM\Column(type="date")
      */
     private $publication_date;
@@ -44,7 +39,6 @@ class Article
      */
     private $content;
 
-
     /**
      * @ORM\Column(type="boolean")
      */
@@ -55,27 +49,20 @@ class Article
      */
     private $pictures;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Journalist::class, inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $journalist;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
     }
 
-
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getJournalistId(): ?Journalist
-    {
-        return $this->journalist_id;
-    }
-
-    public function setJournalistId(?Journalist $journalist_id): self
-    {
-        $this->journalist_id = $journalist_id;
-
-        return $this;
     }
 
     public function getPublicationDate(): ?\DateTimeInterface
@@ -86,7 +73,6 @@ class Article
     public function setPublicationDate(\DateTimeInterface $publication_date): self
     {
         $this->publication_date = $publication_date;
-
         return $this;
     }
 
@@ -98,7 +84,6 @@ class Article
     public function setGenreId(?Genre $genre_id): self
     {
         $this->genre_id = $genre_id;
-
         return $this;
     }
 
@@ -110,7 +95,6 @@ class Article
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
         return $this;
     }
 
@@ -122,10 +106,8 @@ class Article
     public function setContent(string $content): self
     {
         $this->content = $content;
-
         return $this;
     }
-
 
     public function getEmergency(): ?bool
     {
@@ -135,7 +117,6 @@ class Article
     public function setEmergency(bool $emergency): self
     {
         $this->emergency = $emergency;
-
         return $this;
     }
 
@@ -153,7 +134,6 @@ class Article
             $this->pictures[] = $picture;
             $picture->setArticle($this);
         }
-
         return $this;
     }
 
@@ -171,6 +151,18 @@ class Article
 
     public function setPicture(string $string)
     {
+    }
+
+    public function getJournalist(): ?Journalist
+    {
+        return $this->journalist;
+    }
+
+    public function setJournalist(?Journalist $journalist): self
+    {
+        $this->journalist = $journalist;
+
+        return $this;
     }
 
 }

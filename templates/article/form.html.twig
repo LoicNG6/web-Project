@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <link rel="stylesheet" href="{{'public/style.css'}}">
+{{ form_start(form) }}
+
+         {% if app.request.attributes.get('_route') == 'article_edit' %}
+
+             <h2>Images Actuelles</h2>
+
+             {% for image in article.pictures  %}
+                 <div>
+                     <img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
+
+                     <a  class="btn-danger" href="{{ path('delete_image', {id: image.id})}}"
+                        data-delete data-token="{{ csrf_token('delete' ~ image.id )}}">Supprimer</a>
+                 </div>
+
+             {% endfor %}
+         {% endif %}
+
+    <button id="save" class="btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+{% endblock %}

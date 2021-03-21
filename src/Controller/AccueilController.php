@@ -6,6 +6,8 @@ use App\Data\SearchData;
 use App\Entity\Article;
 use App\Entity\Message;
 use App\Form\SearchForm;
+use App\Form\ArticleType;
+use App\Form\Form1Type;
 use App\Repository\ArticleRepository;
 use App\Repository\EvenentRepository;
 use App\Repository\MessageRepository;
@@ -47,8 +49,6 @@ class AccueilController extends AbstractController
         ]);
     }
 
-
-
     /**
      * @Route("/", name="choose")
      */
@@ -57,32 +57,22 @@ class AccueilController extends AbstractController
         return $this->render('accueil/choose.html.twig');
     }
 
-
-
     /**
      * @Route("/home", name="home")
      */
-    public function home( Request $request,ObjectManager $manager):Response
+    public function home(Request $request, ObjectManager $manager): Response
     {
-        $article = $this->articleRepository->findBy(array('emergency' => true));
+        $emergency = $this->articleRepository->findBy(array('emergency' => true));
         $Events = $this->events->findall();
 
         $data = new SearchData();
         $formSearch = $this->createForm(SearchForm::class, $data);
         $formSearch->handleRequest($request);
-        $emergency = $this->articleRepository->findSearch($data);
+        $article = $this->articleRepository->findSearch($data);
 
         $message = new Message();
-        $form = $this->createFormBuilder($message)
-            ->add('name',TextType::class )
-            ->add('fist_name',TextType::class)
-            ->add('email',EmailType::class)
-            ->add('date',DateType::class)
-            ->add('content',TextareaType::class)
-            ->getform();
-
+        $form = $this->createForm(Form1Type::class, $message);
         $form->handleRequest($request);
-
         if($form->isSubmitted() && $form->isValid()){
 
             $manager->persist($message);
@@ -92,29 +82,16 @@ class AccueilController extends AbstractController
 
         return $this->render('accueil/home.html.twig', [
             'emergency' => $emergency,
-            'article' => $article,
+            'articles' => $article,
             'Events' => $Events,
             'formMessage' => $form->createView(),
             'formSearch' => $formSearch->createView()
 
         ]);
-    }
 
-    /**
-     * @Route("showArticle", name="showArticle")
-     */
-    public  function showArticle(){
 
-        return $this->render('accueil/showArticle.html.twig');
-    }
-    /**
-     * @Route("msgSend", name="msgSend")
-     */
-    public  function msgSend(){
 
-        return $this->render('accueil/msgSend.html.twig');
-    }
-
+        }
 
 
 }

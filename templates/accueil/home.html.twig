@@ -104,18 +104,27 @@
         </div>
 
         <div id="d_center">
-            {% for article in emergency %}
+            {% for article in articles %}
                 <section id ="art" class="articles">
+                    <h1>Article Numéro : {{ article.id }}</h1>
                     <article>
-                        <h2> {{ article.title }}</h2>
-                        <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
-                            a {{ article.publicationdate | date('H:i')}} dans la categorie scientifique </div>
-                        <div class ="content">
-                            <!--<img src=" " alt="">-->
-                            <P> voila le paragraphe de mon article</P>
-                        </div>
-                        <a href=" {{ path('showArticle') }}" class="btn btn-primary">Lire la suite</a>
-                    </article>
+                            <h2> {{ article.title }}</h2>
+                            <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
+                                a {{ article.publicationdate | date('H:i')}} dans la categorie scientifique </div>
+                            <div class ="content">
+                                <P> voila le paragraphe de mon article</P>
+                            </div>
+                            {% for image in article.picture %}
+                                <div>
+                                    <img src="{{ asset('/uploads/') ~ image.name}}" alt="image" width="400" height="300">
+                                </div>
+                            {% endfor %}
+
+                            <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a>
+
+
+                        </article>
+
                 </section>
             {% endfor %}
         </div>
