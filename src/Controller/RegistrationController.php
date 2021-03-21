@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\EditProfileType;
+use App\Form\EditInformationType;
 use App\Form\RegistrationFormType;
 use App\Security\LoginUserAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -55,38 +55,6 @@ class RegistrationController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/profile", name="profile")
-     */
-    public function profile(): Response
-    {
-        return $this->render('Profile/profile.html.twig');
-    }
 
 
-    /**
-     * @Route("/editProfile", name="edit_profile")
-     * @param Request $request
-     * @return Response
-     */
-    public function editProfile(Request $request): Response
-    {
-        $user= $this->getUser();
-        $form = $this->createForm(EditProfileType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            $this->addFlash('message', 'done');
-            return $this->redirectToRoute('profile');
-        }
-
-        return $this->render('Profile/edit_profile.html.twig', [
-            'editProfile' => $form->createView(),
-        ]);
-    }
 }

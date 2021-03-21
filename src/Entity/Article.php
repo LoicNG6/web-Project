@@ -20,11 +20,6 @@ class Article
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Journalist::class, inversedBy="articles")
-     */
-    private $journalist_id;
-
-    /**
      * @ORM\Column(type="date")
      */
     private $publication_date;
@@ -54,6 +49,12 @@ class Article
      */
     private $pictures;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Journalist::class, inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $journalist;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -62,18 +63,6 @@ class Article
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getJournalistId(): ?Journalist
-    {
-        return $this->journalist_id;
-    }
-
-    public function setJournalistId(?Journalist $journalist_id): self
-    {
-        $this->journalist_id = $journalist_id;
-
-        return $this;
     }
 
     public function getPublicationDate(): ?\DateTimeInterface
@@ -162,6 +151,18 @@ class Article
 
     public function setPicture(string $string)
     {
+    }
+
+    public function getJournalist(): ?Journalist
+    {
+        return $this->journalist;
+    }
+
+    public function setJournalist(?Journalist $journalist): self
+    {
+        $this->journalist = $journalist;
+
+        return $this;
     }
 
 }

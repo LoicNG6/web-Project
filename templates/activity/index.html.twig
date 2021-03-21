@@ -9,9 +9,11 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Articles of {{ app.User.lastName }}! ✅</h1>
+    <h1>Articles of {{ affichage de du nom de lArticle du user connecté }}! ✅</h1>
+   {#
     {% for event in app.User.Article %}
         {{ article.title }}
     {% endfor %}
+    #}
 </div>
 {% endblock %}

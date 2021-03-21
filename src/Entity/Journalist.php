@@ -24,9 +24,15 @@ class Journalist extends User
     private $redacteurChef;
 
     /**
-     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="journalist_id")
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="journalist", orphanRemoval=true)
      */
     private $articles;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->articles = new ArrayCollection();
+    }
 
     public function getIndependant(): ?bool
     {
@@ -45,13 +51,34 @@ class Journalist extends User
         return $this->redacteurChef;
     }
 
-    public function getArticles(): ?Article
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
     {
         return $this->articles;
     }
-    public function setArticles(?Article $articles): self
+
+    public function addArticle(Article $article): self
     {
-        $this->articles = $articles;
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setJournalist($this);
+        }
+
         return $this;
     }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getJournalist() === $this) {
+                $article->setJournalist(null);
+            }
+        }
+
+        return $this;
+    }
+    
 }

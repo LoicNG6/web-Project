@@ -96,7 +96,6 @@ class User implements UserInterface
     {
         $this->comments = new ArrayCollection();
         $this->evenents = new ArrayCollection();
-        $this->y = new ArrayCollection();
         $this->messages = new ArrayCollection();
     }
 
