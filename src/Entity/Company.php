@@ -27,10 +27,6 @@ class Company
 */
     private $Contry;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $emailCompany;
 
     /**
      * @ORM\Column(type="string", length=255)

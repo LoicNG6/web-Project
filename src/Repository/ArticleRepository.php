@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -17,6 +18,24 @@ class ArticleRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Article::class);
+    }
+
+    /**
+     * @param SearchData $search
+     * @return Article[]
+     */
+    public function findSearch(SearchData $search): array{
+        $query = $this
+            ->createQueryBuilder('a')
+            ->select('a');
+
+        if(!empty($search->q)){;
+            $query = $query
+                ->andWhere('a.title LIKE :q')
+                ->setParameter('q', "%$search->q%");
+        }
+        return $query->getQuery()->getResult();
+
     }
 
     // /**
