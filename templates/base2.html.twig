@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        {% block head %}
+            <meta charset="UTF-8">
+            {#<title>{{ app.user.firstName }} {{ app.user.lastName }}'s profile</title>#}
+            {% block stylesheets %}
+                <link rel="stylesheet" href="{{ 'profile.css' }}" type="text/css">
+            {% endblock %}
+        {% endblock %}
+    </head>
+
+    <body >
+        {% block body %}<h1>profile</h1>{% endblock %}
+    </body>
+
+</html>

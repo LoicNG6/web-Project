@@ -1,0 +1,20 @@
+{% block body %}
+    <p> Write Here</p>
+
+    {% for message in messages %}
+        <tr>
+            <td>{{ message.id }}</td>
+            <td>{{ message.name }}</td>
+            <td>{{ message.fistname }}</td>
+            <td>{{ message.email }}</td>
+            <td>{{ message.date ? message.date|date('Y-m-d') : '' }}</td>
+            <td>{{ message.content }}</td>
+
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="6">no records found</td>
+        </tr>
+    {% endfor %}
+
+{% endblock %}

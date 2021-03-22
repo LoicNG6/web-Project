@@ -114,7 +114,7 @@
                             <div class ="content">
                                 <P> voila le paragraphe de mon article</P>
                             </div>
-                            {% for image in article.picture %}
+                            {% for image in article.pictures %}
                                 <div>
                                     <img src="{{ asset('/uploads/') ~ image.name}}" alt="image" width="400" height="300">
                                 </div>

@@ -1,0 +1,47 @@
+{% extends 'base2.html.twig' %}
+{% block body %}
+    <div class="center">
+        {% for flashError in app.flashes('message') %}
+            <div class="flash" role="alert">{{ flashError }}</div>
+        {% endfor %}
+        <table>
+            <h1>Choose what you want to do ?</h1>
+            <tr>
+                <td>
+                    <a href="{{ path('edit_information') }}">
+                        <button type="button" id="information">
+                            Modify Information
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{{ path('edit_password') }}">
+                        <button type="button" id="password">
+                            Change Password
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{{ path('activity') }}">
+                        <button type="button" id="activity">
+                            See my Activity
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{{ path('home') }}">
+                        <button type="button" id="home">
+                            Go back to Home
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

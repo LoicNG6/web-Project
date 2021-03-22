@@ -1,0 +1,26 @@
+{% extends 'base2.html.twig' %}
+{% block body %}
+    <div class="center">
+        {{ form_start(editInformation) }}
+            {#<h1>Editing {{ app.User.firstName }} {{ app.user.lastName }}'s information</h1>#}
+                <table>
+                    <tr>
+                        <td>{{ form_label(editInformation.email) }}</td>
+                        <td>{{ form_widget(editInformation.email) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_label(editInformation.firstName) }}</td>
+                        <td>{{ form_widget(editInformation.firstName) }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form_label(editInformation.lastName) }}</td>
+                        <td>{{ form_widget(editInformation.lastName) }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td> <button type="submit" id="btn">Confirm</button></td>
+                    </tr>
+                </table>
+        {{ form_end(editInformation) }}
+    </div>
+{% endblock %}

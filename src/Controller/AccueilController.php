@@ -93,5 +93,12 @@ class AccueilController extends AbstractController
 
         }
 
+    /**
+     * @Route("msgSend", name="msgSend")
+     */
+    public  function msgSend(){
+        return $this->render('accueil/msgSend.html.twig');
+    }
+
 
 }
