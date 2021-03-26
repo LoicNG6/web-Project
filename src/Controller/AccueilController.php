@@ -40,16 +40,6 @@ class AccueilController extends AbstractController
     }
 
     /**
-     * @Route("/index", name="index")
-     */
-    public function index(): Response
-    {
-        return $this->render('accueil/index.html.twig', [
-            'controller_name' => 'AccueilController',
-        ]);
-    }
-
-    /**
      * @Route("/", name="choose")
      */
     public function choose()
@@ -88,10 +78,7 @@ class AccueilController extends AbstractController
             'formSearch' => $formSearch->createView()
 
         ]);
-
-
-
-        }
+  }
 
     /**
      * @Route("msgSend", name="msgSend")

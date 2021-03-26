@@ -90,7 +90,6 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="boolean", length=255, nullable=true)
      */
-
     private $company;
 
     /**
@@ -141,7 +140,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string)$this->email;
+        return (string) $this->email;
     }
 
     /**
@@ -236,13 +235,6 @@ class User implements UserInterface
     public function setBirthday(\DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
-
-        return $this;
-    }
-
-    public function setUserName(string $userName): self
-    {
-        $this->userName = $userName;
 
         return $this;
     }
@@ -368,4 +360,3 @@ class User implements UserInterface
         return $this;
     }
 }
-

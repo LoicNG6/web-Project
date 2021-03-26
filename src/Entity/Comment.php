@@ -29,7 +29,7 @@ class Comment
     /**
      * @ORM\ManyToOne(targetEntity=article::class, inversedBy="comments")
      */
-    private $articlId;
+    private $articleId;
 
 
     /**

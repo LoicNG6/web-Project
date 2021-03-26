@@ -21,7 +21,7 @@ class Article
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="articleId", orphanRemoval=true)
      */
     private $comments;
 
@@ -51,7 +51,7 @@ class Article
     private $emergency;
 
     /**
-     * @ORM\OneToMany(targetEntity=Pictures::class, mappedBy="article", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=Pictures::class, mappedBy="articles", orphanRemoval=true, cascade={"persist"})
      */
     private $pictures;
 

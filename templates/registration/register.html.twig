@@ -1,83 +1,110 @@
-<link rel="stylesheet" href="bootstrap.min (2).css">
-<link rel="stylesheet" type="text/css" href="inscription.css">
-
-{% block title %}Inscription{% endblock %}
-
-
-
-
-{% block body %}
-
+<!Doctype>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ 'r.css' }}" type="text/css">
+    <title>Registration</title>
+</head>
+<body>
     {% block javascripts %}
-        <script>
-            function hasCompany() {
-                let nom = document.getElementsByClassName('nom')[0];
-                let pays = document.getElementsByClassName('pays')[0];
-                let mail = document.getElementsByClassName('email')[0];
-                let labNom = document.getElementById('labNom');
-                let labPays = document.getElementById('labPays');
-                let labMail = document.getElementById('labMail');
-                if(document.getElementsByClassName('comp')[0].checked){
-                    labNom.style.display = "block";
-                    labPays.style.display = "block";
-                    labMail.style.display = "block";
-                    nom.style.display = "block";
-                    pays.style.display = "block";
-                    mail.style.display = "block";
-                }else{
-                    labNom.style.display = "none";
-                    labPays.style.display = "none";
-                    labMail.style.display = "none";
-                    nom.style.display = "none";
-                    pays.style.display = "none";
-                    mail.style.display = "none";
+            <script>
+                function hasCompany() {
+                    let nom = document.getElementsByClassName('nom')[0];
+                    let pays = document.getElementsByClassName('pays')[0];
+                    let mail = document.getElementsByClassName('email')[0];
+                    let center = document.getElementsByClassName('center')[0];
+                    let labNom = document.getElementById('labNom');
+                    let labPays = document.getElementById('labPays');
+                    let labMail = document.getElementById('labMail');
+                    if(document.getElementsByClassName('comp')[0].checked){
+                        labNom.style.display = "block";
+                        labPays.style.display = "block";
+                        labMail.style.display = "block";
+                        nom.style.display = "block";
+                        pays.style.display = "block";
+                        mail.style.display = "block";
+                        center.style.height="620px";
+                    }else{
+                        labNom.style.display = "none";
+                        labPays.style.display = "none";
+                        labMail.style.display = "none";
+                        nom.style.display = "none";
+                        pays.style.display = "none";
+                        mail.style.display = "none";
+                        center.style.height="400px";
+                    }
                 }
-            }
+                function noCompany() {
+                    let elem = document.getElementById('visible');
+                    elem.style.display = "none";
+                }
 
-            function noCompany() {
-                let elem = document.getElementById('visible');
-                elem.style.display = "none";
-            }
-
-        </script>
-
-    {% endblock %}
+            </script>
+        {% endblock %}
     {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
 
-    <h1>Register</h1>
-    <div class="row" style="color:rgba(0,0,128,1);
-    background-color:rgba(230,255,255,1);
-    border-radius:100px;
-    width:1000px;
-    height: 1450px;
-    margin: 80px auto 100px;
-    padding-top:60px;">
-        <fieldset style="margin-left: 30%">
-            <legend style="color: blue">Veuillez renseigner vos informations</legend>
+    <div class="center">
+
+        <h1>Register</h1>
+
             {{ form_start(registrationForm) }}
-            <div class="col">{{ form_row(registrationForm.firstName, {'label': 'Prénom'}) }}</div>
-            <div class="col">{{ form_row(registrationForm.lastName, {'label': 'Nom'}) }}</div>
-            <div class="col">{{ form_row(registrationForm.email, {'label': 'Email'}) }}</div>
-            <div class="col">{{ form_row(registrationForm.password, {'label': 'Mot de passe'}) }}</div>
-            <div class="col">{{ form_row(registrationForm.confirmPassword, {'label': 'Confirmation du mot de passe'}) }}</div>
-            <label style="color: darkblue; margin-left: 30px">Date de naissance</label>
-            <div class="col" style="margin-left: 16px">{{ form_row(registrationForm.birthday) }}</div>
+        <table>
+            <tr>
+                <td>{{ form_label(registrationForm.firstName) }}</td>
+                <td>{{ form_widget(registrationForm.firstName) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(registrationForm.lastName) }}</td>
+                <td>{{ form_widget(registrationForm.lastName) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(registrationForm.email) }}</td>
+                <td>{{ form_widget(registrationForm.email) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(registrationForm.password) }}</td>
+                <td>{{ form_widget(registrationForm.password) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(registrationForm.confirmPassword) }}</td>
+                <td>{{ form_widget(registrationForm.confirmPassword) }}</td>
+            </tr>
+            <tr>
+                <td><label for="birthday">Birthday</label></td>
+                <td>{{ form_widget(registrationForm.birthday) }}</td>
+            </tr>
+        </table>
 
-            <div class="col">Cochez la case si vous travaillez dans une compagnie?
-            {{ form_row(registrationForm.company, {'attr':{'onclick':'hasCompany()', 'class': 'comp'}}) }}
-            </div>
-            <div><label id="labNom" style="display: none">Nom de la compagnie</label>
-            {{ form_row(registrationForm.companyName, {'attr':{'onclick':'hasCompany()', 'class': 'nom','style': 'display: none;'}}) }}
-                <div><label id="labPays" style="display: none">Pays de la compagnie</label>
-            {{ form_row(registrationForm.companyCountry, {'attr':{'onclick':'hasCompany()', 'class': 'pays','style': 'display: none;'}}) }}
-                    <div><label id="labMail" style="display: none">Email de la compagnie</label>
-            {{ form_row(registrationForm.companyEmail, {'attr':{'onclick':'hasCompany()', 'class': 'email','style': 'display: none;'}}) }}
+        <table class="checkbox">
+            <tr>
+                <td class="checkbox_label">If you belong to some company, check the case please</td>
+                <td>{{ form_widget(registrationForm.company,
+                        {'attr':{'onclick':'hasCompany()', 'class': 'comp'}}) }}</td>
+            </tr>
+        </table>
 
-            <button type="submit" class="btn btn-success" style="margin-left: 30%">Inscription</button>
-        </fieldset>
+        <table>
+            <tr id="labNom" style="display: none">
+                <td >{{ form_label(registrationForm.companyName) }}</td>
+                <td>{{ form_widget(registrationForm.companyName,
+                    {'attr':{'onclick':'hasCompany()', 'class': 'nom','style': 'display: none;'}}) }}</td>
+            </tr>
+            <tr id="labPays" style="display: none">
+                <td>{{ form_label(registrationForm.companyCountry) }}</td>
+                <td>{{ form_widget(registrationForm.companyCountry,
+                        {'attr':{'onclick':'hasCompany()', 'class': 'pays','style': 'display: none;'}}) }}</td>
+            </tr>
+            <tr id="labMail" style="display: none">
+                <td>{{ form_label(registrationForm.companyEmail) }}</td>
+                <td>{{ form_widget(registrationForm.companyEmail,
+                        {'attr':{'onclick':'hasCompany()', 'class': 'email','style': 'display: none;'}}) }}</td>
+            </tr>
+        </table>
+        <button type="submit">Enter</button>
+            {{ form_end(registrationForm) }}
+
     </div>
-    </div>
-    {{ form_end(registrationForm) }}
-{% endblock %}
+</body>
+</html>

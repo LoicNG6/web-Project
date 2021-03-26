@@ -34,7 +34,6 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
         $formCompany = null;
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
@@ -50,13 +49,14 @@ class RegistrationController extends AbstractController
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
-            );
-            return $this->redirectToRoute('login');
+                );
+            return $this->redirectToRoute('home');
         }
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
+
     /**
      * @Route("/verify/email", name="app_verify_email")
      */
@@ -70,6 +70,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_register');
         }
         $this->addFlash('success', 'Your email address has been verified.');
+
         return $this->redirectToRoute('app_register');
     }
 }

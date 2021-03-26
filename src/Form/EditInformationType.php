@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,12 +18,24 @@ class EditInformationType extends AbstractType
             ->add('email', EmailType::class, [
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter an email',
+                        'message' => 'Please enter the new email',
                     ]),
                 ],
             ])
-            ->add('firstName')
-            ->add('lastName');
+            ->add('firstName', TextType::class, [
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter the new firstName',
+                    ]),
+                ],
+            ])
+            ->add('lastName', TextType::class, [
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter the new lastName',
+                    ]),
+                ],
+            ]);
     }
     public function configureOptions(OptionsResolver $resolver)
     {
