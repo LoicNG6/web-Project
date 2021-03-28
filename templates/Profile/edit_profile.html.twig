@@ -2,7 +2,8 @@
 {% block body %}
     <div class="center">
         {{ form_start(editInformation) }}
-            {#<h1>Editing {{ app.User.firstName }} {{ app.user.lastName }}'s information</h1>#}
+
+        <h1>Editing {{ app.User.firstName }} {{ app.user.lastName }}'s information</h1>
                 <table>
                     <tr>
                         <td>{{ form_label(editInformation.email) }}</td>
@@ -23,4 +24,6 @@
                 </table>
         {{ form_end(editInformation) }}
     </div>
+
+        {# -------------------------------------------------------------------------------------- #}
 {% endblock %}

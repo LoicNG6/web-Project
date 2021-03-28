@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=EvenentRepository::class)
  */
-class Evenent
+class Event
 {
     /**
      * @ORM\Id
@@ -41,13 +41,10 @@ class Evenent
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="evenents")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $User;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="Participant")
-     */
-    private $Participant;
 
     public function __construct()
     {
@@ -117,30 +114,6 @@ class Evenent
     public function setUser(?User $User): self
     {
         $this->User = $User;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getParticipant(): Collection
-    {
-        return $this->Participant;
-    }
-
-    public function addParticipant(User $participant): self
-    {
-        if (!$this->Participant->contains($participant)) {
-            $this->Participant[] = $participant;
-        }
-
-        return $this;
-    }
-
-    public function removeParticipant(User $participant): self
-    {
-        $this->Participant->removeElement($participant);
 
         return $this;
     }

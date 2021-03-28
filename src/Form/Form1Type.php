@@ -16,11 +16,21 @@ class Form1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',TextType::class )
-            ->add('fist_name',TextType::class)
-            ->add('email',EmailType::class)
-            ->add('date',DateType::class)
-            ->add('content',TextareaType::class)
+            ->add('name',TextType::class, [
+                'label'=>false
+            ] )
+            ->add('fist_name',TextType::class, [
+                'label'=>false
+            ] )
+            ->add('email',EmailType::class, [
+                'label'=>false
+            ] )
+            ->add('date',DateType::class, [
+                'label'=>false
+            ] )
+            ->add('content',TextareaType::class, [
+                'label'=>false
+            ] )
         ;
     }
 

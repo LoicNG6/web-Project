@@ -2,11 +2,9 @@
 {% block body%}
 {{ form_start(form) }}
     {{ form_widget(form) }}
-
-
     {% if app.request.attributes.get('_route') == 'article_edit' %}
         <h2>Images</h2>
-        {% for image in article.picture %}
+        {% for image in article.pictures %}
             <div>
                 <img src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
                 <a href="{{ path('article_delete_images', {id: image.id})}}"

@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Evenent;
+use App\Entity\Event;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +24,7 @@ class EvenentType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Evenent::class,
+            'data_class' => Event::class,
         ]);
     }
 }

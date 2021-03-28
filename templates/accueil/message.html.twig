@@ -1,19 +1,46 @@
+<!DOCTYPE>
+<html>
+{#
+{% form_theme formMessage 'bootstrap_4_layout.html.twig' %} #}
+<head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ 'Message.css' }}" type="text/css">
+</head>
 
-{% form_theme formMessage 'bootstrap_4_layout.html.twig' %}
 {% block body %}
-        <p> Write Here</p>
 
+        <p> You want to talk us ? Please write here </p>
 
         {{ form_start(formMessage) }}
+        <table>
+                <tr>
+                        <td>Name</td>
+                        <td>{{ form_widget(formMessage.name,{'attr':{ 'placeholder':"Name", 'class':'name'}}) }}</td>
+                </tr>
+                <tr>
+                        <td>first name</td>
+                        <td>{{ form_widget(formMessage.fist_name,{'attr':{ 'placeholder': "First Name", 'class':'index'}}) }}</td>
+                </tr>
+                <tr>
+                        <td>Date</td>
+                        <td>{{ form_widget(formMessage.date,{'attr':{ 'placeholder':"Date", 'class':'date'}}) }}</td>
+                </tr>
+                <tr>
+                        <td>Email</td>
+                        <td>{{ form_widget(formMessage.email,{'attr':{ 'placeholder': "Email", 'class':'index'}}) }}</td>
+                </tr>
+                <tr>
+                        <td>Message</td>
+                        <td>{{ form_widget(formMessage.content,{'attr':{'placeholder': "Message"}} )}}</td>
+                </tr>
+                <tr>
+                        <td></td>
+                        <td><button type="submit" class="btn btn-success">Envoyer</button></td>
+                </tr>
+        </table>
 
-        {{ form_row(formMessage.name,{'attr':{ 'placeholder':"Name"}}) }}
-
-        {{ form_row(formMessage.fist_name,{'attr':{ 'placeholder': "First Name"}}) }}
-        {{ form_row(formMessage.email,{'attr':{ 'placeholder': "Email"}}) }}
-        {{ form_row(formMessage.date,{'attr':{ 'placeholder': "Date",}}) }}
-        {{ form_row(formMessage.content,{'attr':{'placeholder': "Message"}} )}}
-
-        <button type="submit" class="btn btn-success">Envoyer</button>
 
         {{ form_end (formMessage) }}
+
 {% endblock %}
+</html>

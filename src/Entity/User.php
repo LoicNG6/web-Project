@@ -73,7 +73,7 @@ class User implements UserInterface
     private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity=Evenent::class, mappedBy="User")
+     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="User")
      */
     private $evenents;
 
@@ -240,14 +240,14 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection|Evenent[]
+     * @return Collection|Event[]
      */
     public function getEvenents(): Collection
     {
         return $this->evenents;
     }
 
-    public function addEvenent(Evenent $evenent): self
+    public function addEvenent(Event $evenent): self
     {
         if (!$this->evenents->contains($evenent)) {
             $this->evenents[] = $evenent;
@@ -257,7 +257,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function removeEvenent(Evenent $evenent): self
+    public function removeEvenent(Event $evenent): self
     {
         if ($this->evenents->removeElement($evenent)) {
             // set the owning side to null (unless already changed)

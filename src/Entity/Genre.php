@@ -24,6 +24,16 @@ class Genre
      */
     private $Name;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="genre", orphanRemoval=true)
+     */
+    private $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -42,5 +52,34 @@ class Genre
         return $this;
     }
 
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setGenre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getGenre() === $this) {
+                $article->setGenre(null);
+            }
+        }
+
+        return $this;
+    }
 
 }

@@ -1,34 +1,95 @@
+
+
 {% extends 'base.html.twig' %}
-{% block title %}Article{% endblock %}
-
 {% block body %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/recup_comment.js') }}"></script>
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
 
-    <div id="indx">
-        <h1>Article Numéro : {{ article.id }}</h1>
-    </div>
-    <div id="table">
-        <div id="tabe">
-            <h1>{{ article.title }}</h1>
-            <tbody >
+<div class="body_head">
+    <img id="business" src="pictures/business.jpg" alt=""/>
+</div>
+<h1>What happened ?</h1>
+<h2>"If you know something, Say it."</h2>
+
+{# -----------------------------------------Menu horizontal----------------------------------------------#}
+
+<ul>
+    <li>
+        <button type="button" class="btn btn-primary">
+            <div class="texte">
+                <a href="{{ 'home' }}" alt="Retour">Retour</a>
+            </div>
+        </button>
+    </li>
+    <li class="laUne">
+        <button type="button" class="btn btn-primary"><div class="texte">A la une</div></button>
+    </li>
+    <li>
+        <button type="button" class="btn btn-primary"><div class="texte">Sciences</div></button>
+    </li>
+    <li>
+        <button type="button" class="btn btn-primary"><div class="texte">Histoire</div></button>
+    </li>
+    <li>
+        <button type="button" class="btn btn-primary"><div class="texte">Sport</div></button>
+    </li>
+    <li>
+        <button type="button" class="btn btn-primary"><div class="texte">Politiquue</div></button>
+    </li>
+    <li>
+        <button type="button" class="btn btn-primary"><div class="texte">À propos</div></button>
+    </li>
+    <li>
+        <div class="dropdown">
+            <input onclick="myFunction()" type="image" id="img_profil2" class="dropbtn"
+                   src="pictures/profil.png" alt="">
+            <div id="myDropdown" class="dropdown-content">
+                {% if app.user %}
+                    <a href="{{ path('logout') }}">se déconnecter</a>
+                    <a href="{{ path('profile') }}">Voir mon profil</a>
+                {% else %}
+                    <a href="{{ path('login') }}">se connecter</a>
+                {% endif %}
+            </div>
+        </div>
+    </li>
+</ul>
+
+{# ----------------------------------------------Article---------------------------------------------------- #}
+     <h4>{{ article.title }}</h4>
                 {% for image in article.pictures %}
-                    <div id="img">
                         <img id="img" src="{{ asset('/uploads/' ~ image.name) }}" alt="Image" width="150">
-                    </div>
                 {% endfor %}
                 <div>{{ article.publicationDate ? article.publicationDate|date('Y-m-d') : '' }}</div>
                 <div>{{ article.content }}</div>
-            </tbody>
-        </div>
 
         <div id="comments" class="grix xs2 sm3 gutter-0 card">
-                <h2 id="liste">Liste des commentaires</h2>
+                <h5 id="liste">Liste des commentaires</h5>
                 {% for comment in article.comments %}
                     {% if comment.parent == null %}
                         <div id="commentaire">
-                            <h3>Commentaire {{ loop.index }}</h3>
+                            <h6>Commentaire {{ loop.index }}</h6>
                         </div>
                         <div>
-                            <h5> {{ comment.text }} </h5>
+                            <h6> {{ comment.text }} </h6>
                             <p>publié par {{ comment.nickname }} le {{ comment.createdAt|date("d/m/Y H:i") }}</p>
                             <p><a href="#comments_form" data-reply data-id="{{ comment.id }}" class="btn-outline-success">Répondre</a> </p>
                         </div>
@@ -41,17 +102,11 @@
                 {% endfor %}
 
             <div class="col-xs2 col-sm3" id="comments_form">
-                <h2>Ajouter un commentaire commentaires</h2>
+                <h5>Ajouter un commentaire commentaires</h5>
                 {{ form(commentForm) }}
             </div>
         </div>
-    </div>
     <div>
         <a id="show" class="btn-danger" href="{{ path('home') }}">back to page home</a>
     </div>
-{% endblock %}
-
-{% block javascripts %}
-    <script src="{{ asset('js/recup_comment.js') }}"></script>
-
 {% endblock %}

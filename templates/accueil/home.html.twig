@@ -1,104 +1,81 @@
 {% extends 'base.html.twig' %}
 {% block body%}
-    <title>{% block title %}What happened ?{% endblock %}</title>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <div id="head">
-        <div id="whats" class="btn btn-secondary">
-            <h1> What's happened ?</h1>
-        </div>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 
-        <div id="sign_up" class="form-inline my-2 my-lg-0">
-            <div id="prof" >
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="profile" src="pictures/profil.png"></button>
-            </div>
-
-            <div id="panier" class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="pn" src="pictures/pn.png"></button>
-            </div>
-
-        </div>
-        <div id="sign_up" class="form-inline my-2 my-lg-0">
-
-            <div id="twit" class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="twitter" src="pictures/twitter.png"></button>
-            </div>
-
-            <div id="linkedin" class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="in" src="pictures/in.png"></button>
-            </div>
-        </div>
-        <div id="sign_up" class="form-inline my-2 my-lg-0">
-
-            <div id="facebook" class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="fb" src="pictures/fb.png"></button>
-            </div>
-            <div id="instagram" class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"> <img id="insta" src="pictures/insta.png"></button>
-            </div>
-
-        </div>
-
+    <div class="body_head">
+        <img id="business" src="pictures/business.jpg" alt=""/>
     </div>
+    <h1>What happened ?</h1>
+    <h2>"If you know something, Say it."</h2>
 
-    <div id="ongl">
-        <div id="init" class="btn-group" role="group" >
-            <button type="button" class="btn btn-primary">A LA UNE</button>
+    {# -----------------------------------------Menu horizontal----------------------------------------------#}
 
-        </div>
+        <ul>
+            <li class="laUne">
+                <button type="button" class="btn btn-primary"><div class="texte">A la une</div></button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary"><div class="texte">Sciences</div></button>
+                </li>
+            <li>
+                <button type="button" class="btn btn-primary"><div class="texte">Histoire</div></button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary"><div class="texte">Sport</div></button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary"><div class="texte">Politiquue</div></button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary"><div class="texte">À propos</div></button>
+            </li>
+            <li>
+                {{ form_start(formSearch, {'attr':{'class':'form-inline my-2 my-lg-0'}}) }}
+                    {{ form_widget(formSearch.q) }}
+                    <input type="image" id="search" class="btn btn-primary" src="pictures/loupe.png" alt="">
+                {{ form_end(formSearch) }}
+            </li>
+            <li>
+                <div class="dropdown">
+                    <input onclick="myFunction()" type="image" id="img_profil" class="dropbtn"
+                           src="pictures/profil.png" alt="">
+                    <div id="myDropdown" class="dropdown-content">
+                        {% if app.user %}
+                            <a href="{{ path('logout') }}">se déconnecter</a>
+                            <a href="{{ path('profile') }}">Voir mon profil</a>
+                        {% else %}
+                            <a href="{{ path('login') }}">se connecter</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </li>
+        </ul>
 
-
-        <div id="init" class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">LA REDACTION</button>
-            <ul class="dropdown-menu">
-                <li><a href="#">Pays à l'honneur</a></li>
-                <li><a href="#">Sous l'arbre à palabres</a></li>
-                <li><a href="#">Le journal d'ESMA</a></li>
-                <li><a href="#">Twiza</a></li>
-            </ul>
-        </div>
-
-
-        <div id="init" class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">EVENEMENTS</button>
-            <ul class="dropdown-menu">
-                <li><a href="#">Nos évenements</a></li>
-                <li><a href="#">Evenements recomandés</a></li>
-            </ul>
-        </div>
-
-
-        <div id="init" class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">ARCHIVES</button>
-            <ul class="dropdown-menu">
-                <li><a href="#">Archives Wakhatina</a></li>
-                <li><a href="#">Archives Pays à l'honneur</a></li>
-                <li><a href="#">Archives Sous l'arbre à Palabre</a></li>
-                <li><a href="#">Archives Journal d'ESMA</a></li>
-            </ul>
-        </div>
-        <div  id="init" class="btn-group" role="group" >
-            <button type="button" class="btn btn-primary">A PROPOS</button>
-        </div>
-
-        <div id="srch">
-            {{ form_start(formSearch, {'attr':{'class':'form-inline my-2 my-lg-0'}}) }}
-                {{ form_row(formSearch.q) }}
-            <button id="recherche" class="btn btn-primary my-2 my-sm-0" type="submit">SEARCH</button>
-            {{ form_end(formSearch) }}
-        </div>
-    </div>
+    {# ----------------------------------------------Evenements---------------------------------------------------- #}
 
     <div id="corp"  class="p-3 mb-2 bg-primary text-white">
         <div id="d_right" >
             <div >
                 <p>Our events</p>
-
                 {% include 'accueil/Events.html.twig' %}
             </div>
         </div>
@@ -106,37 +83,31 @@
         <div id="d_center">
             {% for article in articles %}
                 <section id ="art" class="articles">
-                    <h1>Article Numéro : {{ article.id }}</h1>
                     <article>
-                            <h2> {{ article.title }}</h2>
-                            <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
-                                a {{ article.publicationdate | date('H:i')}} dans la categorie scientifique </div>
-                            <div class ="content">
-                                <P> voila le paragraphe de mon article</P>
+                        <h3> {{ article.title }} numéro {{ article.id }}</h3>
+                        <div class="metadata"> ecrit le {{ article.publicationdate | date('Y/m/d')}}
+                            a {{ article.publicationdate | date('H:i')}} dans la categorie scientifique </div>
+                        <div class ="content">
+                            <P> voila le paragraphe de mon article</P>
+                        </div>
+                        {% for image in article.pictures %}
+                            <div>
+                                <img src="{{ asset('/uploads/') ~ image.name}}" alt="image" width="400" height="300">
                             </div>
-                            {% for image in article.pictures %}
-                                <div>
-                                    <img src="{{ asset('/uploads/') ~ image.name}}" alt="image" width="400" height="300">
-                                </div>
-                            {% endfor %}
-
-                            <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a>
-
-
-                        </article>
-
+                        {% endfor %}
+                        <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a>
+                    </article>
                 </section>
             {% endfor %}
         </div>
 
         <div id="d_right" >
             {% include 'accueil/message.html.twig' %}
-
             <div>
                 {% include 'accueil/emergency.html.twig' %}
             </div>
         </div>
-    </div>
 
+    </div>
 
 {% endblock%}

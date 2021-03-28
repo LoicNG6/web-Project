@@ -5,7 +5,7 @@
             <div class="flash" role="alert">{{ flashError }}</div>
         {% endfor %}
         <table>
-            <h1>Choose what you want to do ?</h1>
+            <h1>Hi {{ app.user.firstName }} {{ app.user.lastName }}, choose what you want to do on your profile</h1>
             <tr>
                 <td>
                     <a href="{{ path('edit_information') }}">

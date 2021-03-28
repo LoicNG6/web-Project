@@ -1,5 +1,8 @@
+body{
+    background-image: url("pictures/business.jpg");
+}
 .center{
-    background-color:rgba(230,255,255,0.5);
+    background-color:rgb(230,255,255);
     border-radius:100px;
     width:810px;
     height:420px;
@@ -9,13 +12,13 @@
     padding-top:70px;
 }
 h1{
-    font-size: 2em;
+    font-size: 1.5em;
     text-align:center;
     color:rgba(0,0,128,1);
     margin: auto;
 }
 
-table{margin: 70px auto;}
+table{margin: 40px auto;}
 td{padding: 10px;}
 
 label{font-size: x-large;}
@@ -41,11 +44,10 @@ button{
     background-color: rgb(200,200,200);
     border-radius: 10px;
 }
-button:hover{
+#btn:hover,button:hover{
     background-color: rgb(100, 149, 237);
     cursor: pointer;
 }
-
 a{
     color:black;
     text-decoration: none;

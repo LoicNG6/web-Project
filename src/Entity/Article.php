@@ -22,6 +22,7 @@ class Article
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="articleId", orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $comments;
 
@@ -29,11 +30,6 @@ class Article
      * @ORM\Column(type="date")
      */
     private $publication_date;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Genre::class, inversedBy="articles")
-     */
-    private $genre_id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -55,11 +51,20 @@ class Article
      */
     private $pictures;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Genre::class, inversedBy="articles")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $genre;
+
     /**
      * @ORM\ManyToOne(targetEntity=Journalist::class, inversedBy="articles")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $journalist;
+
+
 
     public function __construct()
     {
@@ -79,17 +84,6 @@ class Article
     public function setPublicationDate(\DateTimeInterface $publication_date): self
     {
         $this->publication_date = $publication_date;
-        return $this;
-    }
-
-    public function getGenreId(): ?Genre
-    {
-        return $this->genre_id;
-    }
-
-    public function setGenreId(?Genre $genre_id): self
-    {
-        $this->genre_id = $genre_id;
         return $this;
     }
 
@@ -159,17 +153,6 @@ class Article
     {
     }
 
-    public function getJournalist(): ?Journalist
-    {
-        return $this->journalist;
-    }
-
-    public function setJournalist(?Journalist $journalist): self
-    {
-        $this->journalist = $journalist;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Comment[]
@@ -197,6 +180,30 @@ class Article
                 $comment->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getGenre(): ?Genre
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?Genre $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    public function getJournalist(): ?Journalist
+    {
+        return $this->journalist;
+    }
+
+    public function setJournalist(?Journalist $journalist): self
+    {
+        $this->journalist = $journalist;
 
         return $this;
     }

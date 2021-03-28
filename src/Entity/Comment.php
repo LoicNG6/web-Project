@@ -27,7 +27,7 @@ class Comment
     private $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity=article::class, inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="comments")
      */
     private $articleId;
 
@@ -125,12 +125,12 @@ class Comment
         return $this;
     }
 
-    public function getArticlId(): ?article
+    public function getArticlId(): ?Article
     {
         return $this->articlId;
     }
 
-    public function setArticlId(?article $articlId): self
+    public function setArticlId(?Article $articlId): self
     {
         $this->articlId = $articlId;
 

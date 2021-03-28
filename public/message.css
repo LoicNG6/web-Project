@@ -1,0 +1,10 @@
+.index, .name, textarea{
+    width: 200px;
+    height: 30px;
+    margin: 10px auto;
+    text-align: center;
+}
+button{
+    margin: 20px auto;
+    float: right;
+}
